@@ -4,6 +4,7 @@ import { AuthorizationService } from './authorization.service';
 import { User } from '../models/user.model';
 import { Track } from '../models/track.model';
 import { PlayingState } from '../models/playingstate.model';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

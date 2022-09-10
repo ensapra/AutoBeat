@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router, Event as NavigationEvent } from '@angular/router';
 import { map, Observable,interval } from 'rxjs';
 import { AppSettings } from 'src/config';
+import { SpotifyAuthValStorage } from '../models/auth.model';
+import { Image } from '../models/image.model';
 import { PlayingState } from '../models/playingstate.model';
 import { Track } from '../models/track.model';
 import { User } from '../models/user.model';
@@ -22,51 +24,54 @@ export class HomeComponent implements OnInit {
   protected playingState: PlayingState|undefined;
 
   protected songProgress:number = 0;
+
+  protected currentTrackImage: Image|undefined;
   constructor(private auth: AuthorizationService, private router: Router, private apiRequester: SpotifyService) {
-    }
-  
-  ngOnInit(): void {
     if(window.location.search.length > 0){
-      this.handleRedirect();
+      this.handleRedirect().subscribe(
+        () => this.initialize()
+      );
     }
-    else{  
+    else
+      this.initialize();
+  }
+  
+
+  ngOnInit(): void {
+  }
+
+  initialize()
+  {
+    if(this.auth.authorizationValues)
+    {
       this.apiRequester.getUserInfo().subscribe((data:User) =>
       {
         this.user = data;
         this.userImageUrl = data.images[0].url;
-        this.enableLayout();
-      });
+      });    
+      interval(2000).subscribe(() => this.refreshCurrentlyPlaying());
+      this.refreshCurrentlyPlaying(); 
     }
   }
 
-  authorize()
+  refreshCurrentlyPlaying()
   {
-    console.log("asd");
-    this.auth.authorize();
-  }
-  enableLayout()
-  {
-    interval(2000).subscribe(() =>
     this.apiRequester.getCurrentlyPlaying().subscribe((playingData:PlayingState) =>
     {
       this.playingState = playingData;
-      this.apiRequester.getTrackExtended(this.playingState.item.id).subscribe((trackData:Track) =>{
-        this.currentTrack = trackData;
-        console.log(this.currentTrack);
-        this.updateSongProgress(playingData, trackData);
-      });
+      this.currentTrack = playingData.item;
+      this.updateSongInfo(this.playingState, this.currentTrack);
     })
-  )
   }
-  updateSongProgress(state: PlayingState, track: Track)
+  updateSongInfo(state: PlayingState, track: Track)
   {
     this.songProgress = (state.progress_ms/track.duration_ms)*100;
+    this.currentTrackImage = track.album.images.length > 0 ? track.album.images[0] : undefined;
   }
 
-  handleRedirect(){
+  handleRedirect() : Observable<any>{
     let code = this.getCode();
-    this.auth.fetchAccessToken(code);
-    window.history.pushState("", "", AppSettings.RedirectUri);
+    return this.auth.fetchAccessToken(code);
   }
 
   getCode(){

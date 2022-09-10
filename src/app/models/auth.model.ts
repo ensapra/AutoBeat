@@ -1,9 +1,11 @@
-export interface SpotifyAuthorizationValues{
+import { Observable } from "rxjs";
+
+/* export interface SpotifyAuthorizationValues{
     access_token: string;
     refresh_token: string;
     expires_in: number; 
-  }
-  export class SpotifyAuthValStorage implements SpotifyAuthorizationValues
+  } */
+  export class SpotifyAuthValStorage
   {
     access_token: string;
     refresh_token: string;

@@ -1,7 +1,8 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, filter, switchMap, catchError, retry } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { map, filter, switchMap, catchError, retry, delay, take, mergeMap } from 'rxjs/operators';
+import { SpotifyAuthValStorage } from '../models/auth.model';
 import { AuthorizationService } from './authorization.service';
 
 @Injectable({
@@ -14,18 +15,20 @@ export class SpotifyHTTPInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     //do whatever you want with the HttpRequest
     req = req.clone({headers: this.getHeader()})
+    
     return next.handle(req).pipe(
-/*      catchError((err, caught) => {
-        if(err.status == 401 && this.auth.authorizationValues != undefined){ //Not registed
-          this.auth.refreshAccessToken();
-          retry();
-          throw caught;
-        }
-        else
-          throw caught;
-      }) */
-    )
+      catchError((err: HttpErrorResponse) => {
+          if(err.status === 401 || err.status === 403)
+          {
+            return this.auth.refreshAccessToken().pipe(
+              mergeMap(() => next.handle(req.clone()))
+              )
+          }
+          else
+            throw err;
+        }))
   }
+
   getHeader() : HttpHeaders{
     return new HttpHeaders({
       'Content-Type': 'application/json',
