@@ -27,12 +27,7 @@ export class AuthorizationService {
     let accessTK = localStorage.getItem("access_token");
     let refreshTK = localStorage.getItem("refresh_token");
     if(accessTK == null || refreshTK == null)
-    {
-      if(refreshTK != null)
-        this.refreshAccessToken();
-      else
         this.fetchCode();
-    }
     else 
       this.authorizationValues = new SpotifyAuthValStorage(accessTK, refreshTK)
   }
@@ -60,9 +55,10 @@ export class AuthorizationService {
   }
 
   refreshAccessToken():Observable<any>{
+    let refreshTK = localStorage.getItem("refresh_token");
     let params = new URLSearchParams({
       grant_type: "refresh_token",
-      refresh_token: this.authorizationValues != undefined ?  this.authorizationValues.refresh_token : "",
+      refresh_token: refreshTK != null ?  refreshTK : "",
       client_id : this.clientId,
     });
     return this.callAuthorizationApi(params);
@@ -96,7 +92,6 @@ export class AuthorizationService {
                 }
                 this.authorizationValues = new SpotifyAuthValStorage(acces, refresh);
                 this.router.navigate([""]);
-                console.log(this.authorizationValues)
               });
         }
           ));
