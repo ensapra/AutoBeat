@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --general: #E7F2F8;
+    --primary: #FFA384;
+    --secondary: #EFE7BC;
+    --accent: #74BDCB;
+    }
+    
+    
+html, body{
+    background-color: var(--general);
+    width: 100%;
+    height: 100%;
+    margin:  0;
+}
