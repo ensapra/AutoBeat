@@ -19,4 +19,12 @@ export interface Track {
     track_number: number;
     type: string;
     uri: string;
+
+    trackState: TrackState;
+}
+
+export enum TrackState{
+    None,
+    Added,
+    Removed
 }

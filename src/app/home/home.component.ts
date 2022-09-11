@@ -1,6 +1,4 @@
-import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router, Event as NavigationEvent } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { map, Observable,interval, timestamp } from 'rxjs';
 import { Image } from '../models/image.model';
 import { PlayingState } from '../models/playingstate.model';
@@ -18,6 +16,7 @@ import { TrackComponent } from '../track/track.component';
 
 export class HomeComponent implements OnInit {
 
+  @ViewChild(TrackComponent) trackChild !: TrackComponent;
   protected user: User|undefined
   protected userImageUrl: string|undefined;
   protected currentTrack: Track|undefined;
@@ -63,18 +62,19 @@ export class HomeComponent implements OnInit {
       {
         this.playingState = playingData;
         this.currentTrack = playingData.item;
-        this.updateSongInfo(this.playingState, this.currentTrack);      
+        let progress = (this.playingState.progress_ms/this.currentTrack.duration_ms)*100;
+        this.trackChild.updateTrackProgress(progress);      
       }
       else
         console.log("nothing");        
     })
   }
 
-  updateSongInfo(state: PlayingState, track: Track)
+/*   updateSongInfo(state: PlayingState, track: Track)
   {
     this.songProgress = (state.progress_ms/track.duration_ms)*100;
     this.currentTrackImage = track.album.images.length > 0 ? track.album.images[0] : undefined;
-  }
+  } */
 
 
   handleRedirect() : Observable<any>{

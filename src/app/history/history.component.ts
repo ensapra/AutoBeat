@@ -11,9 +11,11 @@ export class HistoryComponent implements OnInit {
 
   public RecentlyPlayed: Array<Track> | undefined;
   constructor(private spotify: SpotifyService) { 
-    spotify.getRecentlyPlayed(20).subscribe((data:any)=>{
-      console.log(data)
-      this.RecentlyPlayed = data;
+    spotify.onChangeTrack.subscribe(()=>{
+      spotify.getRecentlyPlayed(20).subscribe((data:any)=>{
+        console.log("called");
+        this.RecentlyPlayed = data;
+      })
     })
   }
 
