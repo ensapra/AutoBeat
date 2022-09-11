@@ -9,11 +9,13 @@ import { User } from '../models/user.model';
 import { AuthorizationService } from '../services/authorization.service';
 import { ConfiguratorService } from '../services/configurator.service';
 import { SpotifyService } from '../services/spotify.service';
+import { TrackComponent } from '../track/track.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
 
   protected user: User|undefined

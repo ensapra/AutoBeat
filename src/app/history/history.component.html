@@ -1,5 +1,1 @@
-<div *ngFor="let track of RecentlyPlayed">
-    <mat-card >
-        <mat-card-title>{{track.name}}</mat-card-title>
-    </mat-card>
-</div>
+<app-track *ngFor="let track of RecentlyPlayed" [track]="track"></app-track>

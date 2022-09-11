@@ -105,29 +105,15 @@ export class SpotifyService {
     
       }
     })
-    /* if(conf.autoAdd){
-      if(this.songProgress > conf.whenToAdd)
-      {
-        if(this.playingState?.currently_playing_type == "playlist"){
-          let id = this.playingState.context.uri;
-          if(this.currentTrack != null)
-            this.apiRequester.addTrackToPlaylist(this.currentTrack?.id, id)
-        }
-      }
-    }
-    if(conf.autoRemove)
-    {
-
-    } */
   }
   autoAdd(state: PlayingState){
-    let playlistId = state.context.uri.split(":")[2];
-    if(state.context.type == "playlist")
+    if(state.context != null && state.context.type == "playlist")
     {
+      let playlistId = state.context.uri.split(":")[2];
       this.addTrackToPlaylist(state.item, playlistId).subscribe();
     }
     else
-      console.log("no");
+      console.log("Not playing a playlist");
   }
   autoRemove(state: PlayingState){
 
