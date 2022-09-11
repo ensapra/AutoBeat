@@ -10,12 +10,16 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { HistoryComponent } from './history/history.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {MatSliderModule} from '@angular/material/slider';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpotifyHTTPInterceptorService } from './services/spotify-httpinterceptor.service';
-
+import { FormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { TrackComponent } from './track/track.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +27,7 @@ import { SpotifyHTTPInterceptorService } from './services/spotify-httpintercepto
     NavigationBarComponent,
     ConfigurationComponent,
     HistoryComponent,
+    TrackComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,12 @@ import { SpotifyHTTPInterceptorService } from './services/spotify-httpintercepto
     MatToolbarModule,
     HttpClientModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    FormsModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     {

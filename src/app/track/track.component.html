@@ -1,0 +1,11 @@
+<mat-card class="trak">
+    <mat-card-title>{{currentTrack?.name}}</mat-card-title>
+    <mat-card-subtitle>
+        By
+        <a *ngFor="let artist of currentTrack?.artists; last as isLast">{{artist.name}}<a *ngIf="!isLast">,</a></a>
+    </mat-card-subtitle>
+    <mat-card-content>
+        <mat-progress-spinner [value]="songProgress">
+        </mat-progress-spinner>
+    </mat-card-content>
+</mat-card>

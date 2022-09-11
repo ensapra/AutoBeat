@@ -6,4 +6,8 @@ export interface PlayingState {
     item: Track;
     currently_playing_type: string;
     is_playing: boolean;
+    context:{
+        type: string;
+        uri: string;
+    }
 }

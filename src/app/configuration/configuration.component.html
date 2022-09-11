@@ -1,1 +1,34 @@
-<p>configuration works!</p>
+<div class="configPack">
+    <h2>Automatically Add</h2>
+    <mat-slide-toggle  [(ngModel)]="currentConfig.autoAdd"></mat-slide-toggle>
+    <div class="spinnerBox" *ngIf="currentConfig.autoAdd">
+        <label>Add after:</label>
+        <mat-slider [(ngModel)]="currentConfig.whenToAdd"></mat-slider>
+        <mat-form-field appearance="fill">
+            <mat-label>Percentage amount</mat-label>
+            <input matInput type="number" [(ngModel)]="currentConfig.whenToAdd" min="0" max="100">
+        </mat-form-field>
+        <mat-progress-spinner [value]="currentConfig.whenToAdd"></mat-progress-spinner>
+    </div>
+    <p>It will automatically add the song, once it has played {{currentConfig.whenToAdd}}% of the song</p>
+</div>
+
+<div class="configPack">
+    <h2>Automatically Remove</h2>
+    <mat-slide-toggle  [(ngModel)]="currentConfig.autoRemove"></mat-slide-toggle>
+    <div class="spinnerBox" *ngIf="currentConfig.autoRemove">
+        <label>Remove after:</label>
+        <mat-slider [(ngModel)]="currentConfig.whenToRemove"></mat-slider>
+        <mat-form-field appearance="fill">
+            <mat-label>Percentage amount</mat-label>
+            <input matInput type="number" [(ngModel)]="currentConfig.whenToRemove" min="0" max="100">
+        </mat-form-field>
+        <mat-progress-spinner [value]="currentConfig.whenToRemove"></mat-progress-spinner>
+    </div>
+    <p>It will automatically remove songs, once they are skipped after it has played
+        {{currentConfig.whenToRemove}}% 
+        of the song and hasn't played more than
+        {{currentConfig.whenToAdd}}%</p>
+</div>
+
+<button (click)="saveConfiguration()">SAVE!</button>
