@@ -32,7 +32,7 @@ export class SpotifyService {
     return this.http.get<PlayingState>(url).pipe(map((data:PlayingState)=>{
         if(this.currentTrack?.id !== data.item.id)
         {
-          this.onChangeTrack.next({previousTrack:this.currentTrack, currentTrack:data.item});
+          this.onChangeTrack.next({previousTrack:this.currentTrack, currentTrack:data?.item});
           this.currentTrack = data.item;
           this.currentTrack.trackState = TrackState.None;
         }

@@ -1,8 +1,7 @@
-<div >
-    <img async src={{currentTrackImage?.url}}>
+<div [ngStyle]="bkgColor()">
     <div class="Song">
-        <h1>Hi {{user?.display_name}}...</h1>
-        <h2>Currently Playing</h2>
+        <h1>Currently Playing</h1>
+        <img async src={{currentTrackImage?.url}}>
         <app-track [track]="currentTrack" [showProgress]="true"></app-track>
     </div>
 </div>

@@ -41,7 +41,7 @@ import { TrackComponent } from './track/track.component';
     FormsModule,
     MatSlideToggleModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [
     {

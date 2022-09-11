@@ -13,7 +13,7 @@ export interface Track {
     id: string;
     is_local: boolean;
     name: string;
-    images:Image[];
+//    images:Image[];
     popularity: number;
     preview_url: string;
     track_number: number;
