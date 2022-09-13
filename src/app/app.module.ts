@@ -5,11 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HistoryComponent } from './history/history.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSliderModule} from '@angular/material/slider';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -20,11 +18,16 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { TrackComponent } from './track/track.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavigationBarComponent,
     ConfigurationComponent,
     HistoryComponent,
     TrackComponent,
@@ -36,12 +39,15 @@ import { TrackComponent } from './track/track.component';
     MatToolbarModule,
     HttpClientModule,
     MatCardModule,
-    MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatSliderModule,
     FormsModule,
     MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSidenavModule,
+    FlexLayoutModule,
+    MatIconModule
   ],
   providers: [
     {

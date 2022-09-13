@@ -1,7 +1,18 @@
-<div [ngStyle]="bkgColor()">
-    <div class="Song">
-        <h1>Currently Playing</h1>
-        <img async src={{currentTrackImage?.url}}>
-        <app-track [track]="currentTrack" [showProgress]="true"></app-track>
+<div class="song" [ngStyle]="bkgColor()">
+    <img class="image" async src={{currentTrackImage?.url}}>
+    <div class="text">
+        <p class="title">{{currentTrack?.name}}</p>
+        <div class="artists">
+            <p>By
+                <span *ngFor="let artist of currentTrack?.artists; last as isLast">
+                    <span>{{artist.name}}</span>
+                    <span *ngIf="!isLast">, </span>
+                </span>
+            </p>
+        </div>
+        <div class="progressContainer" [ngStyle]="progressContainerSettings()">
+            <div class="progress" [ngStyle]="progressSettings()"></div>
+        </div>
     </div>
 </div>
+

@@ -5,5 +5,4 @@
         <a *ngFor="let artist of track?.artists; last as isLast">{{artist.name}}<a *ngIf="!isLast">,</a></a>
     </mat-card-subtitle>
     <img async src={{trackImageURL}}>
-    <mat-progress-spinner *ngIf="songProgress > 0"[value]="songProgress"></mat-progress-spinner>
 </mat-card>

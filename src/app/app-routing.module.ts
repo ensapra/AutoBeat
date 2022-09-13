@@ -6,8 +6,6 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
-  {path: 'history', component: HistoryComponent},
-  {path: 'config', component: ConfigurationComponent}
 ];
 
 @NgModule({

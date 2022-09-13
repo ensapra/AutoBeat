@@ -14,17 +14,11 @@ export class TrackComponent implements OnInit {
 
   @Input() showProgress : boolean = true;
   @Input() track: Track|undefined;
-  protected songProgress:number = 0;
   protected trackImageURL:string|undefined;
   constructor(private spotify: SpotifyService) {
    }
 
   ngOnInit(): void {
     this.trackImageURL = this.track?.album.images[1].url;
-  }
-
-  updateTrackProgress(progress: number)
-  {
-    this.songProgress = progress;
   }
 }

@@ -1,4 +1,19 @@
-<body>
-  <app-navigation-bar></app-navigation-bar>
-  <router-outlet></router-outlet>
-</body>
+<div>
+  <mat-sidenav-container class="container" [hasBackdrop]="true">
+    <mat-sidenav class="sidenav" #historyDrawer [mode]="'over'" position="start">
+      <app-history></app-history>
+    </mat-sidenav>
+    <mat-sidenav class="sidenav" #configDrawer [mode]="'over'" position="end">
+      <app-configuration></app-configuration>
+    </mat-sidenav>
+
+    <div class="content">
+       <mat-toolbar class="nav">
+          <mat-icon (click)="historyDrawer.toggle()" fontIcon="history"></mat-icon>
+          <h1>Spadd</h1>
+          <mat-icon (click)="configDrawer.toggle()" fontIcon="settings"></mat-icon>
+        </mat-toolbar> 
+      <router-outlet></router-outlet>
+   </div>
+  </mat-sidenav-container>
+</div>
