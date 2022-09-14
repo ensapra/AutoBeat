@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { AuthorizationService } from './authorization.service';
 import { User } from '../models/user.model';
 import { Track, TrackState } from '../models/track.model';
 import { PlayingState } from '../models/playingstate.model';
-import { empty, map, merge, mergeMap, Observable, switchMap, of, interval, zip, Subject } from 'rxjs';
+import { empty, map, merge, mergeMap, Observable, switchMap, of, interval, zip, Subject, catchError } from 'rxjs';
 import { ConfiguratorService } from './configurator.service';
+import { Playlist } from '../models/playlist.model';
 
 
 @Injectable({
@@ -16,9 +17,10 @@ export class SpotifyService {
   
   refresher = interval(2000);
   private currentTrack: Track|undefined;
-  public onChangeTrack : Subject<{previousTrack:Track|undefined, currentTrack:Track|undefined}> = new Subject();
+  public playState: PlayingState|undefined;
+  public onChangeTrack : Subject<{previousTrack:Track|undefined, state: PlayingState|undefined, currentTrack:Track|undefined}> = new Subject();
 
-  constructor(private http: HttpClient, private auth: AuthorizationService, private config: ConfiguratorService) { 
+  constructor(private http: HttpClient, private config: ConfiguratorService) { 
   }
   
   getUserInfo(){
@@ -27,19 +29,55 @@ export class SpotifyService {
 
   }
 
+  getTrackImageURL(){
+    if(this.currentTrack != undefined)
+      return this.currentTrack.album.images[0].url;
+    else
+      return "../assets/picture-not-available.jpg";
+  }
+
   getCurrentlyPlaying(){
     const url = 	"https://api.spotify.com/v1/me/player/currently-playing";
     return this.http.get<PlayingState>(url).pipe(map((data:PlayingState)=>{
-        if(this.currentTrack?.id !== data.item.id)
+        if(data == null || this.currentTrack?.id !== data.item.id)
         {
-          this.onChangeTrack.next({previousTrack:this.currentTrack, currentTrack:data?.item});
-          this.currentTrack = data.item;
-          this.currentTrack.trackState = TrackState.None;
+
+          let previousTrack = this.currentTrack;
+          this.playState = data != null ? data: undefined;
+          this.currentTrack = data?.item;
+          if(this.currentTrack != undefined)
+            this.currentTrack.trackState = TrackState.None;
+          
+          if(data?.context?.uri)
+          {
+            const parts = data.context.uri.split(":");
+            if(parts[1] == "playlist")
+            {
+              const id = parts[2];
+              data.playlistPlayingId = id;
+            }
+          }
+          this.onChangeTrack.next({previousTrack:previousTrack, state:this.playState, currentTrack:this.currentTrack});
         }
-        if(this.currentTrack.trackState == 0)
+
+        if(this.currentTrack?.trackState == 0)
           this.checkNextStep(this.currentTrack, data);
         return data;
       }))
+  }
+
+  nothingPlaying()
+  {
+    if(this.currentTrack != undefined)
+    {
+      this.onChangeTrack.next({previousTrack:this.currentTrack, state:undefined, currentTrack:undefined});
+      this.currentTrack = undefined;
+    }
+  }
+  getTrackProgress(){
+    if(this.playState != undefined && this.currentTrack != undefined)
+      return (this.playState?.progress_ms/this.currentTrack?.duration_ms)*100;
+    return 0;
   }
 
   getTrackExtended(id: string)
@@ -48,15 +86,20 @@ export class SpotifyService {
     return this.http.get<Track>(url);
   }
 
+  getPlaylist(id: string|undefined)
+  {
+    const url = "https://api.spotify.com/v1/playlists/" + id;
+    return this.http.get<Playlist>(url);
+  }
+
+
   getRecentlyPlayed(amount: number){
     let url = "https://api.spotify.com/v1/me/player/recently-played"
     url +="?limit=" + amount;
     return this.http.get(url).pipe(map((data:any)=>{
-      let tracks: Array<Track> = []
-      data.items.forEach((element:any) => {
-        tracks.push(element.track);
-      });
-      return tracks;
+      return data.items.map(((data:any) => {
+        return data.track;
+      }));
     }));
   }
 
@@ -111,7 +154,10 @@ export class SpotifyService {
       });
     }
     else
-      console.log("Not playing a playlist");
+    {
+      if(this.currentTrack != undefined)
+        this.currentTrack.trackState = TrackState.NotPlaylist;
+    }
   }
   autoRemove(state: PlayingState){
 

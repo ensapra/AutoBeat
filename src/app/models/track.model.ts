@@ -26,5 +26,6 @@ export interface Track {
 export enum TrackState{
     None,
     Added,
-    Removed
+    Removed,
+    NotPlaylist
 }

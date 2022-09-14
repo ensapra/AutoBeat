@@ -1,18 +1,69 @@
-<div class="song" [ngStyle]="bkgColor()">
-    <img class="image" async src={{currentTrackImage?.url}}>
-    <div class="text">
-        <p class="title">{{currentTrack?.name}}</p>
-        <div class="artists">
-            <p>By
-                <span *ngFor="let artist of currentTrack?.artists; last as isLast">
-                    <span>{{artist.name}}</span>
-                    <span *ngIf="!isLast">, </span>
-                </span>
-            </p>
-        </div>
-        <div class="progressContainer" [ngStyle]="progressContainerSettings()">
-            <div class="progress" [ngStyle]="progressSettings()"></div>
+<!-- <div class="layout">
+    <div class="image"></div>
+    <div class="player"></div>
+    <div class="playlist"></div>
+</div>
+
+ -->
+
+
+
+<div class="song" [ngStyle]="this.visual.bkgColor()">
+    <div class="image">
+        <img async src={{this.apiRequester.getTrackImageURL()}}>
+    </div>
+    <div class="playlist">
+        <p *ngIf="this.playlist == undefined, else playlistContent">You're not currently playing a Playlist</p>
+    </div>
+    <div class="player">
+        <h1>{{currentTrack?.name}}</h1>
+        <p>By
+            <span *ngFor="let artist of currentTrack?.artists; last as isLast">
+                <span>{{artist.name}}</span>
+                <span *ngIf="!isLast">, </span>
+            </span>
+        </p>
+
+        <div class="progressContainer" [ngStyle]="this.visual.progressContainerSettings()">
+            <div class="progress" [ngStyle]="this.visual.progressSettings()"></div>
         </div>
     </div>
 </div>
 
+<ng-template #playlistContent>
+    <img src="{{this.getPlaylistImage()}}">
+    <div class="title">
+        <p>Adding songs to: </p>
+        <h1>{{playlist?.name}}</h1>
+    </div>
+</ng-template>
+
+
+
+<!-- <div class="song" [ngStyle]="this.visual.bkgColor()">
+    <img async src={{this.apiRequester.getTrackImageURL()}}>
+    <div class="playlist">
+        <div *ngIf="this.playlist == undefined, else playlistContent">You're not currently playing a Playlist</div>
+    </div>
+    <div class="player">
+        <h1>{{currentTrack?.name}}</h1>
+        <p>By
+            <span *ngFor="let artist of currentTrack?.artists; last as isLast">
+                <span>{{artist.name}}</span>
+                <span *ngIf="!isLast">, </span>
+            </span>
+        </p>
+
+        <div class="progressContainer" [ngStyle]="this.visual.progressContainerSettings()">
+            <div class="progress" [ngStyle]="this.visual.progressSettings()"></div>
+        </div>
+    </div>
+</div>
+
+<ng-template #playlistContent class="playlist">
+    <img src="{{this.getPlaylistImage()}}">
+    <div class="title">
+        <p>Adding songs to: </p>
+        <h1>{{playlist?.name}}</h1>
+    </div>
+</ng-template> -->

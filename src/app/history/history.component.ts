@@ -21,10 +21,6 @@ export class HistoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.spotify.getRecentlyPlayed(20).subscribe((data:any)=>{
-      console.log(data);
-      this.RecentlyPlayed = data;
-    })
   }
   ngOnDestroy(){
     this.subs.unsubscribe();

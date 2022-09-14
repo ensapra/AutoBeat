@@ -1,3 +1,4 @@
+import { Playlist } from "./playlist.model";
 import { Track } from "./track.model";
 
 export interface PlayingState {
@@ -10,4 +11,5 @@ export interface PlayingState {
         type: string;
         uri: string;
     }
+    playlistPlayingId:string
 }
