@@ -5,26 +5,21 @@ import { Palette } from 'node-vibrant/lib/color';
   providedIn: 'root'
 })
 export class AnimatorService {
-
-  private leftColor: string = "#000000";
-  private rightColor:string = "#ffffff";
-
-  public currentLeft: string = "#000000";
-  public currentRight:string = "#ffffff";
+  public currentLeft: string = "#360940";
+  public currentRight:string = "#F05F57";
 
   constructor() { }
 
   animateColors(targetLeft:string, targetRight:string){
     
     let calls = 0;
+    let leftColor = this.currentLeft;
+    let rightColor = this.currentRight;
     let timeFrame = setInterval(()=> {
-      this.currentLeft = lerpColor(this.leftColor, targetLeft, calls/50);
-      this.currentRight = lerpColor(this.rightColor, targetRight, calls/50);
-      if(calls === 50) {
-        this.leftColor = targetLeft;
-        this.rightColor = targetRight;
+      this.currentLeft = lerpColor(leftColor, targetLeft, calls/50);
+      this.currentRight = lerpColor(rightColor, targetRight, calls/50);
+      if(calls === 50)
         clearInterval(timeFrame);
-      }
       calls++;
     }, 16.667);
   }

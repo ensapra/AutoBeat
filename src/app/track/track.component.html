@@ -1,8 +1,12 @@
-<mat-card class="track">
-    <mat-card-title>{{track?.name}}</mat-card-title>
-    <mat-card-subtitle>
-        By
-        <a *ngFor="let artist of track?.artists; last as isLast">{{artist.name}}<a *ngIf="!isLast">,</a></a>
-    </mat-card-subtitle>
-    <img async src={{trackImageURL}}>
-</mat-card>
+<div class="track" [ngStyle]="this.bkgColor()">
+    <img async src="{{trackImageURL}}">
+    <div class="title">
+        <h1>{{track?.name}}</h1>
+        <p>By
+            <span *ngFor="let artist of track?.artists; last as isLast">
+                <span>{{artist.name}}</span>
+                <span *ngIf="!isLast">, </span>
+            </span>
+        </p>
+    </div>
+</div>

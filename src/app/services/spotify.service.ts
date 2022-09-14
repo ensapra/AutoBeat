@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { AuthorizationService } from './authorization.service';
+import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Track, TrackState } from '../models/track.model';
 import { PlayingState } from '../models/playingstate.model';
-import { empty, map, merge, mergeMap, Observable, switchMap, of, interval, zip, Subject, catchError } from 'rxjs';
+import {  map, Observable, switchMap, of, interval, Subject } from 'rxjs';
 import { ConfiguratorService } from './configurator.service';
 import { Playlist } from '../models/playlist.model';
 
@@ -39,9 +38,8 @@ export class SpotifyService {
   getCurrentlyPlaying(){
     const url = 	"https://api.spotify.com/v1/me/player/currently-playing";
     return this.http.get<PlayingState>(url).pipe(map((data:PlayingState)=>{
-        if(data == null || this.currentTrack?.id !== data.item.id)
+        if(this.currentTrack?.id !== data?.item.id)
         {
-
           let previousTrack = this.currentTrack;
           this.playState = data != null ? data: undefined;
           this.currentTrack = data?.item;

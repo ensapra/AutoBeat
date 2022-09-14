@@ -3,3 +3,7 @@ body{
     min-height: 100vh;
     margin:  0;
 }
+
+.mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgba($color: #373737a5, $alpha: .8);
+}

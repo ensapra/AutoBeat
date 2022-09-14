@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import Vibrant from 'node-vibrant';
 import { Palette } from 'node-vibrant/lib/color';
-import { Subscription } from 'rxjs';
-import { PlayingState } from '../models/playingstate.model';
-import { Track } from '../models/track.model';
 import { AnimatorService } from './animator.service';
 import { SpotifyService } from './spotify.service';
 
@@ -12,9 +9,12 @@ import { SpotifyService } from './spotify.service';
 })
 export class VisualService {
 
+  public defaultLeft: string = "#360940";
+  public defaultRight:string = "#F05F57";  
+
   private palette:Palette|undefined;
   constructor(private spotify:SpotifyService, private anim:AnimatorService) { 
-    this.spotify.onChangeTrack.subscribe(() => this.updatePalette())
+    this.spotify.onChangeTrack.subscribe(() => this.updatePalette(this.spotify.getTrackImageURL()))
   }
 
   bkgColor():any {
@@ -39,15 +39,14 @@ export class VisualService {
     }
   }
 
-  updatePalette()
+  updatePalette(imageUrl: string)
   {
-      let imageUrl = this.spotify.getTrackImageURL();
       Vibrant.from(imageUrl).getPalette((err, palette) => {
         this.palette = palette;
         if(palette != undefined && palette.DarkMuted != undefined && palette.Muted != undefined && this.spotify.playState != undefined)
           this.anim.animateColors(palette.DarkMuted.getHex(), palette.Muted.getHex());
         else
-          this.anim.animateColors("#537895 " , "#09203F");
+          this.anim.animateColors(this.defaultLeft, this.defaultRight);
       });
     }
   }
