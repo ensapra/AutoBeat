@@ -1,27 +1,32 @@
 <div class="config">
-    <h1>Configuration:</h1>
-    <div class="configPack">
-        <div class="topRow">
-            <div class="action">Automatically Add Track:</div>
-            <mat-slide-toggle  [(ngModel)]="currentConfig.autoAdd"></mat-slide-toggle>
+    <div class="internalBlock">
+        <div class="header">
+            <mat-icon (click)="close()" fonticon="arrow_forward_ios"></mat-icon>
+            <h1>Configuration:</h1>
         </div>
-        <div class="description" *ngIf="!currentConfig.autoAdd;else addDescription">Automatically add tracks after a certain period</div>
-        <mat-slider [disabled]="!currentConfig.autoAdd" [(ngModel)]="currentConfig.whenToAdd"  [thumbLabel] = "true"></mat-slider>
-    </div>
-    <div class="configPack">
-        <div class="topRow">
-            <div class="action">Automatically Remove Track:</div>
-            <mat-slide-toggle  [(ngModel)]="currentConfig.autoRemove"></mat-slide-toggle>
+        <div class="configPack">
+            <div class="topRow">
+                <div class="action">Automatically Add Track:</div>
+                <mat-slide-toggle  [(ngModel)]="currentConfig.autoAdd"></mat-slide-toggle>
+            </div>
+            <div class="description" *ngIf="!currentConfig.autoAdd;else addDescription">Automatically add tracks after a certain period</div>
+            <mat-slider [disabled]="!currentConfig.autoAdd" [(ngModel)]="currentConfig.whenToAdd"  [thumbLabel] = "true"></mat-slider>
         </div>
-        <div class="description" *ngIf="!currentConfig.autoRemove;else removeDescription">Automatically remove tracks after a certain period</div>
-        <mat-slider [disabled]="!currentConfig.autoRemove" [(ngModel)]="currentConfig.whenToRemove"  [thumbLabel] = "true"></mat-slider>
-    </div>
-    <div class="configPack">
-        <div class="topRow">
-            <div class="action">Clear all your data</div>
-            <button mat-raised-button color="accent" (click)="this.clearData()">Clear Data</button>
+        <div class="configPack">
+            <div class="topRow">
+                <div class="action">Automatically Remove Track:</div>
+                <mat-slide-toggle  [(ngModel)]="currentConfig.autoRemove"></mat-slide-toggle>
+            </div>
+            <div class="description" *ngIf="!currentConfig.autoRemove;else removeDescription">Automatically remove tracks after a certain period</div>
+            <mat-slider [disabled]="!currentConfig.autoRemove" [(ngModel)]="currentConfig.whenToRemove"  [thumbLabel] = "true"></mat-slider>
         </div>
-        <div class="description" >Clear recently played lists, access tokens and configuration</div>
+        <div class="configPack">
+            <div class="topRow">
+                <div class="action">Clear all your data</div>
+                <button mat-raised-button color="accent" (click)="this.clearData()">Clear Data</button>
+            </div>
+            <div class="description" >Clear recently played lists, access tokens and configuration</div>
+        </div>
     </div>
 </div>
 <div class="footer">

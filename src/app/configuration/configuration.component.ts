@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AutoAdderConfiguration, ConfiguratorService } from '../services/configurator.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { AutoAdderConfiguration, ConfiguratorService } from '../services/configu
 })
 export class ConfigurationComponent implements OnInit {
   
+  @Output() closedEvent = new EventEmitter();
+
   protected currentConfig: AutoAdderConfiguration;
   constructor(private config: ConfiguratorService) { 
     this.currentConfig = config.loadConfig();
@@ -23,5 +25,9 @@ export class ConfigurationComponent implements OnInit {
   clearData(){
     this.config.clearData();
     window.location.href = "";
+  }
+
+  close(){
+    this.closedEvent.emit();
   }
 }

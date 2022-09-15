@@ -1,10 +1,10 @@
 <div>
   <mat-sidenav-container class="container" [hasBackdrop]="true">
     <mat-sidenav class="sidenav" #historyDrawer [mode]="'over'" position="start">
-      <app-history></app-history>
+      <app-history (closedEvent)="historyDrawer.toggle()"></app-history>
     </mat-sidenav>
     <mat-sidenav class="sidenav" #configDrawer [mode]="'over'" position="end" (closed)="saveConfig()">
-      <app-configuration></app-configuration>
+      <app-configuration (closedEvent)="configDrawer.toggle()"></app-configuration>
     </mat-sidenav>
 
     <div class="content">

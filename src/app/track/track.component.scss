@@ -13,6 +13,7 @@ img{
     width: 100px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.295);
     border-radius: 4px;
+    align-self: center;
 }
 
 .title{
@@ -33,4 +34,17 @@ p{
 }
 .state{
     font-variant: small-caps;
+}
+@media screen and (max-width: 500px) {
+    img{
+        height: 60px;
+        width: 60px;
+    }
+    h1{
+        font-size: large;
+    }
+
+    .artist{
+        display: none;
+    }
 }

@@ -2,7 +2,7 @@
     <img async src="{{trackImageURL}}">
     <div class="title">
         <h1>{{track?.name}}</h1>
-        <p>By
+        <p class="artist">By
             <span *ngFor="let artist of track?.artists; last as isLast">
                 <span>{{artist.name}}</span>
                 <span *ngIf="!isLast">, </span>

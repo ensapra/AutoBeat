@@ -3,7 +3,7 @@
     width: auto;
     background-color: red;
     display: grid;
-    column-gap: 15px;
+    column-gap: 20px;
     grid-template-rows: 5% 5% 15% 70% 5%;
     grid-template-columns: 50% 45% 5%;
     grid-template-areas: 
@@ -94,6 +94,7 @@ p{
     pointer-events: none;
     opacity: .5;
 }
+
 .player p{
     margin-bottom: 15px;
     text-align: center;
@@ -112,4 +113,56 @@ p{
     background-color: rgb(0, 0, 0);
     height: 5px;
     transition: .5s;
+}
+
+
+@media screen and (max-width: 770px) {
+    .song{
+        column-gap: 40px;
+    }
+}
+@media screen and (max-width: 650px) {
+    .song{
+            grid-template-rows: 50% 20% 30%;
+            grid-template-columns: 100%;
+            grid-template-areas: 
+            "image"
+            "playlist"
+            "player"
+        }
+
+    .playlist{
+        max-height: 10vh;
+        margin: 10px;
+        margin-left: 20px;
+    }
+    .image{
+        margin: 20px;
+    }
+    .playlist h1{
+        font-size: large;
+    }
+    .player h1{
+        height: 20px;
+    }
+    .player p{
+        font-size: small;
+        margin-top: 10px;
+    }
+    .player mat-icon{
+        font-size: 50px;
+        margin: 0px;
+    }
+    .player button{
+        margin: 10px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .playlist img{
+        width: 0px;
+        height: 0px;
+    }
 }

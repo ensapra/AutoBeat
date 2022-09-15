@@ -14,3 +14,11 @@
     color: rgba(190, 190, 190, 1);
     transition: .1s;
 }
+
+@media screen and (max-width: 650px) {
+    .nav{
+        position: absolute;
+        bottom: 0px;
+        justify-content: space-around;
+    }
+}
