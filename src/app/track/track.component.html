@@ -8,5 +8,12 @@
                 <span *ngIf="!isLast">, </span>
             </span>
         </p>
+        <div class="state">
+            <p *ngIf="track?.trackState == 2" style='color: #5fff38;'>Added to {{track?.playlist?.name}}</p>
+            <p *ngIf="track?.trackState == 3" style='color: #ff3838;'>Removed from {{track?.playlist?.name}}</p>
+            <p *ngIf="track?.trackState == 4">On {{track?.playlist?.name}}</p>
+            <p *ngIf="track?.trackState == 1">No playlist</p>
+            <p *ngIf="track?.trackState == 5">Not Added</p>
+        </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="history">
     <h1>Previously played songs:</h1>
     <div class="scroller">
-        <app-track  *ngFor="let track of RecentlyPlayed" [track]="track"></app-track>
+        <app-track  *ngFor="let track of RecentlyPlayed; trackBy: trackBy" [track]="track" ></app-track>
     </div>
 </div>

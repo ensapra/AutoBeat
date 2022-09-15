@@ -3,6 +3,7 @@ import Vibrant from 'node-vibrant';
 import { Palette } from 'node-vibrant/lib/color';
 import { AnimatorService } from './animator.service';
 import { SpotifyService } from './spotify.service';
+import { Image } from '../models/image.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class VisualService {
 
   private palette:Palette|undefined;
   constructor(private spotify:SpotifyService, private anim:AnimatorService) { 
-    this.spotify.onChangeTrack.subscribe(() => this.updatePalette(this.spotify.getTrackImageURL()))
+    this.spotify.onChangeTrack.subscribe(() => this.updatePalette(this.getBestImageUrl(spotify.currentTrack?.album.images, 0)))
   }
 
   bkgColor():any {
@@ -54,5 +55,21 @@ export class VisualService {
         else
           this.anim.animateColors(this.defaultLeft, this.defaultRight);
       });
-    }
   }
+
+  getBestImageUrl(array:Array<Image>|undefined, dim:number):string{
+    if(array != undefined)
+    {    
+      let i: number = array.length-1;
+      for(i; i >= 0; i--)
+      {
+        const width = array[i].width;
+        const height = array[i].height;
+        if(width > dim && height > dim)
+          return array[i].url;
+      }
+      return array[0].url
+    }
+    return "../assets/picture-not-available.jpg";
+  }
+}

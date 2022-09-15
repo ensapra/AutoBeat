@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AppSettings } from 'src/config';
-import { map, filter, switchMap, catchError } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpRequest, HttpResponse, HttpResponseBase } from '@angular/common/http';
+import { filter, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { SpotifyAuthValStorage } from '../models/auth.model';
-import { pipe, from, Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

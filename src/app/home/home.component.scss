@@ -31,7 +31,6 @@
 
 .song .playlist{
     grid-area: playlist;
-    overflow: hidden;
     display: flex;
     position: relative;
 }
@@ -99,7 +98,9 @@ p{
     margin-bottom: 15px;
     text-align: center;
 }
-
+.player .state{
+    font-variant: small-caps;
+}
 .progressContainer {
     background-color: rgb(192, 192, 192);
     width: 90%;

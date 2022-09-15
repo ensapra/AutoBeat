@@ -1,11 +1,12 @@
 <div class="song" [ngStyle]="this.visual.bkgColor()">
     <div class="image">
-        <img async src={{this.apiRequester.getTrackImageURL()}}>
+        <img #targetImage async src={{getTrackImage()}}>
     </div>
     <div class="playlist">
-        <p *ngIf="this.playlist == undefined, else playlistContent">You're not currently playing a Playlist</p>
+        <p *ngIf="this.apiRequester.currentTrack?.playlist == undefined, else playlistContent">You're not currently playing a Playlist</p>
     </div>
     <div class="player">
+        <h1 *ngIf="this.apiRequester.currentTrack == undefined">Nothing playing</h1>
         <h1>{{this.apiRequester.currentTrack?.name}}</h1>
         <p *ngIf="this.apiRequester.currentTrack != undefined">By
             <span *ngFor="let artist of this.apiRequester.currentTrack?.artists; last as isLast">
@@ -17,9 +18,15 @@
         <div class="progressContainer" [ngStyle]="this.visual.progressContainerSettings()">
             <div class="progress" [ngStyle]="this.visual.progressSettings()"></div>
         </div>
-        <button (click)="this.addCurrentSong()" [ngStyle]="this.visual.getButtonColor()" [disabled]="this.wasAdded()">
+        <button (click)="this.addCurrentSong()" [ngStyle]="this.visual.getButtonColor()" [disabled]="this.canAdd()">
             <mat-icon fontIcon="add_circle"></mat-icon>
         </button>
+        <div class="state">
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 2" style='color: #5fff38;'>Added to the playlist</p>
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 3" style='color: #ff3838;'>Removed from the playlist</p>
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 4">On playlist</p>
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 5">Not Added</p>
+        </div>
     </div>
 </div>
 
@@ -27,7 +34,7 @@
     <img async src="{{this.getPlaylistImage()}}">
     <div class="title">
         <p *ngIf="this.config.loadConfig().autoAdd, else playing">Adding songs to: </p>
-        <h1>{{playlist?.name}}</h1>
+        <h1>{{this.apiRequester.currentTrack?.playlist?.name}}</h1>
     </div>
 </ng-template>
 

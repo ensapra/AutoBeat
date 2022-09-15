@@ -23,6 +23,9 @@ export class ConfiguratorService {
   saveConfiguration(config: AutoAdderConfiguration){
     localStorage.setItem("configuration", JSON.stringify(config));
   }
+  clearData(){
+    localStorage.clear();
+  }
 }
 export class AutoAdderConfiguration{
   public autoAdd: boolean = false

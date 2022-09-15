@@ -3,7 +3,7 @@
     <mat-sidenav class="sidenav" #historyDrawer [mode]="'over'" position="start">
       <app-history></app-history>
     </mat-sidenav>
-    <mat-sidenav class="sidenav" #configDrawer [mode]="'over'" position="end">
+    <mat-sidenav class="sidenav" #configDrawer [mode]="'over'" position="end" (closed)="saveConfig()">
       <app-configuration></app-configuration>
     </mat-sidenav>
 

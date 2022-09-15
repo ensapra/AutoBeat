@@ -1,6 +1,7 @@
 import { Album } from "./albun.mode";
 import { Artist } from "./artist.model";
 import { Image } from "./image.model";
+import { Playlist } from "./playlist.model";
 
 export interface Track {
     album: Album;
@@ -20,12 +21,14 @@ export interface Track {
     uri: string;
 
     trackState: TrackState;
+    playlist: Playlist
 }
 
 export enum TrackState{
-    None,
-    Added,
-    Removed,
-    NotPlaylist,
-    Exists,
+    undefined,
+    NotPlayingPlaylist,
+    AddedToPlaylist,
+    RemovedFromPlaylist,
+    AlreadyOnPlaylist,
+    NotOnPlaylist
 }

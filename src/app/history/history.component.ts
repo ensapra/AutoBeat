@@ -14,18 +14,20 @@ export class HistoryComponent implements OnInit {
   private subs:Subscription;
   constructor(private spotify: SpotifyService) { 
     this.subs = spotify.onChangeTrack.subscribe(()=>{
-      spotify.getRecentlyPlayed(20).subscribe((data:any)=>{
+      this.RecentlyPlayed=spotify.getRecentlyPlayed().reverse()
+/*       spotify.getRecentlyPlayed(20).subscribe((data:any)=>{
         this.RecentlyPlayed = data;
-      })
+      }) */
     })
   }
 
   ngOnInit(): void {
-    this.spotify.getRecentlyPlayed(20).subscribe((data:any)=>{
-      this.RecentlyPlayed = data;
-    })
+    this.RecentlyPlayed=this.spotify.getRecentlyPlayed().reverse()
   }
   ngOnDestroy(){
     this.subs.unsubscribe();
   }
+  public trackBy(index:number, track:Track) {
+    return track.id; // or any other identifier
+}
 }

@@ -19,4 +19,9 @@ export class ConfigurationComponent implements OnInit {
   saveConfiguration(){
     this.config.saveConfiguration(this.currentConfig);
   }
+
+  clearData(){
+    this.config.clearData();
+    window.location.href = "";
+  }
 }

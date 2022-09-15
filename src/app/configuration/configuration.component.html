@@ -16,6 +16,13 @@
         <div class="description" *ngIf="!currentConfig.autoRemove;else removeDescription">Automatically remove tracks after a certain period</div>
         <mat-slider [disabled]="!currentConfig.autoRemove" [(ngModel)]="currentConfig.whenToRemove"  [thumbLabel] = "true"></mat-slider>
     </div>
+    <div class="configPack">
+        <div class="topRow">
+            <div class="action">Clear all your data</div>
+            <button mat-raised-button color="accent" (click)="this.clearData()">Clear Data</button>
+        </div>
+        <div class="description" >Clear recently played lists, access tokens and configuration</div>
+    </div>
 </div>
 <div class="footer">
     <a href="https://www.spotify.com" target="_blank">
@@ -23,6 +30,9 @@
     </a>
     <a href="https://github.com/DarkSapra" target="_blank">By: Pau Solsona</a>
 </div>
+
+
+
 <ng-template #addDescription>
     <div class="description">
         Automatically add the track once it has played mroe than {{currentConfig.whenToAdd}}% of it.

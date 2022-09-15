@@ -1,5 +1,5 @@
 .config{
-    max-width: 700px;   
+    width: 550px;   
     background-color: #212121; 
     height: 100vh;
     padding: 0 20px 0 20px;
@@ -21,6 +21,10 @@ h1{
 }
 mat-slider{
     width: 100%;
+}
+button{
+    transform: scale(.8);
+    margin-top: 20px;
 }
 .action{
     width: 400px;

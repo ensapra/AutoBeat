@@ -22,6 +22,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatInputModule,
     MatSidenavModule,
     FlexLayoutModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     {

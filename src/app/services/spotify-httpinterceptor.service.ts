@@ -1,8 +1,7 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { map, filter, switchMap, catchError, retry, delay, take, mergeMap } from 'rxjs/operators';
-import { SpotifyAuthValStorage } from '../models/auth.model';
+import { Observable } from 'rxjs';
+import {catchError, mergeMap } from 'rxjs/operators';
 import { AuthorizationService } from './authorization.service';
 
 @Injectable({

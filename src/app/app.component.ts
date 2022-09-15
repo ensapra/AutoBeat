@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  //directives: [ConfigurationComponent]
 })
 export class AppComponent {
-  title = 'spotify-auto-adder';
-  loadConfig(){
 
+  @ViewChild(ConfigurationComponent) child!:ConfigurationComponent;
+  constructor(){
   }
-  loadHistory(){
-    
+  title = 'spotify-auto-adder'
+  saveConfig()
+  {
+    this.child.saveConfiguration();
   }
 }

@@ -1,9 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Vibrant from 'node-vibrant';
-import { Image } from '../models/image.model';
-import { PlayingState } from '../models/playingstate.model';
 import { Track } from '../models/track.model';
-import { SpotifyService } from '../services/spotify.service';
 import { VisualService } from '../services/visual.service';
 
 
@@ -25,7 +22,21 @@ export class TrackComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.trackImageURL = this.track?.album.images[1].url;
+    this.trackImageURL = this.visual.getBestImageUrl(this.track?.album.images, 100);
+    if(this.track != undefined){
+      let i: number = this.track.album.images.length-1;
+      for(i; i >= 0; i--)
+      {
+        const width = this.track.album.images[i].width;
+        const height = this.track.album.images[i].height;
+        if(width > 100 && height > 100)
+        {
+          this.trackImageURL = this.track?.album.images[i].url;
+          console.log(i);
+          break;
+        }
+      }
+    }
     if(this.trackImageURL != undefined)
     {
       Vibrant.from(this.trackImageURL).getPalette((err,palette)=>{
