@@ -6,9 +6,9 @@
         <p *ngIf="this.playlist == undefined, else playlistContent">You're not currently playing a Playlist</p>
     </div>
     <div class="player">
-        <h1>{{currentTrack?.name}}</h1>
-        <p>By
-            <span *ngFor="let artist of currentTrack?.artists; last as isLast">
+        <h1>{{this.apiRequester.currentTrack?.name}}</h1>
+        <p *ngIf="this.apiRequester.currentTrack != undefined">By
+            <span *ngFor="let artist of this.apiRequester.currentTrack?.artists; last as isLast">
                 <span>{{artist.name}}</span>
                 <span *ngIf="!isLast">, </span>
             </span>
@@ -17,43 +17,20 @@
         <div class="progressContainer" [ngStyle]="this.visual.progressContainerSettings()">
             <div class="progress" [ngStyle]="this.visual.progressSettings()"></div>
         </div>
+        <button (click)="this.addCurrentSong()" [ngStyle]="this.visual.getButtonColor()" [disabled]="this.wasAdded()">
+            <mat-icon fontIcon="add_circle"></mat-icon>
+        </button>
     </div>
 </div>
 
 <ng-template #playlistContent>
     <img async src="{{this.getPlaylistImage()}}">
     <div class="title">
-        <p>Adding songs to: </p>
+        <p *ngIf="this.config.loadConfig().autoAdd, else playing">Adding songs to: </p>
         <h1>{{playlist?.name}}</h1>
     </div>
 </ng-template>
 
-
-
-<!-- <div class="song" [ngStyle]="this.visual.bkgColor()">
-    <img async src={{this.apiRequester.getTrackImageURL()}}>
-    <div class="playlist">
-        <div *ngIf="this.playlist == undefined, else playlistContent">You're not currently playing a Playlist</div>
-    </div>
-    <div class="player">
-        <h1>{{currentTrack?.name}}</h1>
-        <p>By
-            <span *ngFor="let artist of currentTrack?.artists; last as isLast">
-                <span>{{artist.name}}</span>
-                <span *ngIf="!isLast">, </span>
-            </span>
-        </p>
-
-        <div class="progressContainer" [ngStyle]="this.visual.progressContainerSettings()">
-            <div class="progress" [ngStyle]="this.visual.progressSettings()"></div>
-        </div>
-    </div>
-</div>
-
-<ng-template #playlistContent class="playlist">
-    <img src="{{this.getPlaylistImage()}}">
-    <div class="title">
-        <p>Adding songs to: </p>
-        <h1>{{playlist?.name}}</h1>
-    </div>
-</ng-template> -->
+<ng-template #playing>
+    <p>Playing playlist: </p>
+</ng-template>

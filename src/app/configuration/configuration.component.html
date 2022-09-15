@@ -1,32 +1,39 @@
-<div class="configPack">
-    <h2>Automatically Add</h2>
-    <mat-slide-toggle  [(ngModel)]="currentConfig.autoAdd"></mat-slide-toggle>
-    <div class="spinnerBox" *ngIf="currentConfig.autoAdd">
-        <label>Add after:</label>
-        <mat-slider [(ngModel)]="currentConfig.whenToAdd"></mat-slider>
-        <mat-form-field appearance="fill">
-            <mat-label>Percentage amount</mat-label>
-            <input matInput type="number" [(ngModel)]="currentConfig.whenToAdd" min="0" max="100">
-        </mat-form-field>
+<div class="config">
+    <h1>Configuration:</h1>
+    <div class="configPack">
+        <div class="topRow">
+            <div class="action">Automatically Add Track:</div>
+            <mat-slide-toggle  [(ngModel)]="currentConfig.autoAdd"></mat-slide-toggle>
+        </div>
+        <div class="description" *ngIf="!currentConfig.autoAdd;else addDescription">Automatically add tracks after a certain period</div>
+        <mat-slider [disabled]="!currentConfig.autoAdd" [(ngModel)]="currentConfig.whenToAdd"  [thumbLabel] = "true"></mat-slider>
     </div>
-    <p>It will automatically add the song, once it has played {{currentConfig.whenToAdd}}% of the song</p>
+    <div class="configPack">
+        <div class="topRow">
+            <div class="action">Automatically Remove Track:</div>
+            <mat-slide-toggle  [(ngModel)]="currentConfig.autoRemove"></mat-slide-toggle>
+        </div>
+        <div class="description" *ngIf="!currentConfig.autoRemove;else removeDescription">Automatically remove tracks after a certain period</div>
+        <mat-slider [disabled]="!currentConfig.autoRemove" [(ngModel)]="currentConfig.whenToRemove"  [thumbLabel] = "true"></mat-slider>
+    </div>
 </div>
-
-<div class="configPack">
-    <h2>Automatically Remove</h2>
-    <mat-slide-toggle  [(ngModel)]="currentConfig.autoRemove"></mat-slide-toggle>
-    <div class="spinnerBox" *ngIf="currentConfig.autoRemove">
-        <label>Remove after:</label>
-        <mat-slider [(ngModel)]="currentConfig.whenToRemove"></mat-slider>
-        <mat-form-field appearance="fill">
-            <mat-label>Percentage amount</mat-label>
-            <input matInput type="number" [(ngModel)]="currentConfig.whenToRemove" min="0" max="100">
-        </mat-form-field>
+<div class="footer">
+    <a href="https://www.spotify.com" target="_blank">
+        <img src="..\assets\Spotify_Logo_RGB_White.png">
+    </a>
+    <a href="https://github.com/DarkSapra" target="_blank">By: Pau Solsona</a>
+</div>
+<ng-template #addDescription>
+    <div class="description">
+        Automatically add the track once it has played mroe than {{currentConfig.whenToAdd}}% of it.
     </div>
-    <p>It will automatically remove songs, once they are skipped after it has played
+</ng-template>
+
+<ng-template #removeDescription>
+    <div class="description">
+        Automatically automatically remove songs once they are skipped after it has played more than
         {{currentConfig.whenToRemove}}% 
-        of the song and hasn't played more than
-        {{currentConfig.whenToAdd}}%</p>
-</div>
-
-<button (click)="saveConfiguration()">SAVE!</button>
+        of it and hasn't played more than
+        {{currentConfig.whenToAdd}}%
+    </div>
+</ng-template>

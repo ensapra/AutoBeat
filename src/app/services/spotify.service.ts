@@ -15,7 +15,7 @@ import { Playlist } from '../models/playlist.model';
 export class SpotifyService {
   
   refresher = interval(2000);
-  private currentTrack: Track|undefined;
+  public currentTrack: Track|undefined;
   public playState: PlayingState|undefined;
   public onChangeTrack : Subject<{previousTrack:Track|undefined, state: PlayingState|undefined, currentTrack:Track|undefined}> = new Subject();
 
@@ -38,10 +38,10 @@ export class SpotifyService {
   getCurrentlyPlaying(){
     const url = 	"https://api.spotify.com/v1/me/player/currently-playing";
     return this.http.get<PlayingState>(url).pipe(map((data:PlayingState)=>{
+        this.playState = data != null ? data: undefined;
         if(this.currentTrack?.id !== data?.item.id)
         {
           let previousTrack = this.currentTrack;
-          this.playState = data != null ? data: undefined;
           this.currentTrack = data?.item;
           if(this.currentTrack != undefined)
             this.currentTrack.trackState = TrackState.None;
@@ -53,6 +53,11 @@ export class SpotifyService {
             {
               const id = parts[2];
               data.playlistPlayingId = id;
+              this.isTrackInPlaylist(this.currentTrack.id, id).subscribe((inPlaylist:boolean)=>
+              {
+                if(inPlaylist && this.currentTrack != undefined)
+                  this.currentTrack.trackState = TrackState.Exists;
+              })
             }
           }
           this.onChangeTrack.next({previousTrack:previousTrack, state:this.playState, currentTrack:this.currentTrack});
@@ -62,6 +67,9 @@ export class SpotifyService {
           this.checkNextStep(this.currentTrack, data);
         return data;
       }))
+  }
+  getCurrentTrack(){
+    return this.getCurrentlyPlaying().pipe(map(()=> this.currentTrack));
   }
 
   nothingPlaying()
@@ -146,8 +154,13 @@ export class SpotifyService {
     {
       const playlistId = state.context.uri.split(":")[2];
       this.addTrackToPlaylist(state.item, playlistId).subscribe((result:any)=>{
-        if(result != "failure" && this.currentTrack != undefined){
-          this.currentTrack.trackState = TrackState.Added;
+        if(this.currentTrack != undefined)
+        {
+          if(result == "success" && this.currentTrack != undefined){
+            this.currentTrack.trackState = TrackState.Added;
+          }else if(result=="exists"){
+            this.currentTrack.trackState = TrackState.Exists;
+          }
         }
       });
     }

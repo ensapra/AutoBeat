@@ -6,7 +6,7 @@ import { map, Observable,interval, timestamp, Subscription } from 'rxjs';
 import { Image } from '../models/image.model';
 import { PlayingState } from '../models/playingstate.model';
 import { Playlist } from '../models/playlist.model';
-import { Track } from '../models/track.model';
+import { Track, TrackState } from '../models/track.model';
 import { User } from '../models/user.model';
 import { AnimatorService } from '../services/animator.service';
 import { AuthorizationService } from '../services/authorization.service';
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   protected user: User|undefined
   protected currentTrack: Track|undefined;
   protected playlist: Playlist|undefined;
-
+  
   //protected userImageUrl: string|undefined;
   /* protected songProgress:number = 0;
   protected currentTrackImage: Image|undefined; */
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   protected palette: Palette|undefined;
 
-  constructor(private auth: AuthorizationService, protected apiRequester: SpotifyService, protected visual: VisualService) {
+  constructor(private auth: AuthorizationService, protected apiRequester: SpotifyService, protected visual: VisualService, protected config: ConfiguratorService) {
     if(window.location.search.length > 0){
       this.handleRedirect().subscribe(
         () => this.initialize()
@@ -51,6 +51,11 @@ export class HomeComponent implements OnInit {
   ngOnDestroy(){
     this.onChangeSubscription?.unsubscribe();
     this.onRefreshSubscription?.unsubscribe();
+  }
+  addCurrentSong()
+  {
+    if(this.apiRequester.playState != undefined)
+      this.apiRequester.autoAdd(this.apiRequester.playState);
   }
   initialize()
   {
@@ -66,10 +71,9 @@ export class HomeComponent implements OnInit {
 
   refreshCurrentlyPlaying()
   {
-    this.apiRequester.getCurrentlyPlaying().subscribe((playingData:PlayingState) =>
+    this.apiRequester.getCurrentTrack().subscribe((currentTrack:Track|undefined) =>
     {
-      if(playingData != undefined)
-        this.currentTrack = playingData.item;
+      this.currentTrack = currentTrack;
     })
   }
 
@@ -89,6 +93,10 @@ export class HomeComponent implements OnInit {
       return this.playlist.images[0].url;
     else
       return "";
+  }
+
+  wasAdded():boolean{
+    return this.currentTrack?.trackState != TrackState.None;
   }
 
   handleRedirect() : Observable<any>{

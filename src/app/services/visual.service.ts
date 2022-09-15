@@ -38,7 +38,13 @@ export class VisualService {
       return { 'background-color': '#00000', 'width' : progress+"%"};
     }
   }
-
+  getButtonColor():any{
+    if (this.palette?.LightVibrant) {
+      return { 'color': this.palette.LightVibrant.getHex()};
+    } else {
+      return { 'color': '#00000'};
+    }
+  }
   updatePalette(imageUrl: string)
   {
       Vibrant.from(imageUrl).getPalette((err, palette) => {

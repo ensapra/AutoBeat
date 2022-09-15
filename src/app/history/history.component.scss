@@ -1,0 +1,21 @@
+.history{
+    max-width: 700px;   
+    background-color: #212121; 
+}
+h1{
+    height: 20px;
+    padding: 20px 0 20px 20px;
+    margin: 0px;
+    box-shadow: 0 5px 5px 2px rgba(24, 24, 24, 0.2);
+    position: relative;
+    z-index: 1;
+}
+.scroller{
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: 5px;
+}
+::-webkit-scrollbar-track {
+    margin: 15px 0 15px 0 ;
+}

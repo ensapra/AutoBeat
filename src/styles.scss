@@ -2,8 +2,30 @@ body{
     width: 100%;
     min-height: 100vh;
     margin:  0;
+    overflow: hidden;
 }
 
 .mat-drawer-backdrop.mat-drawer-shown {
     background-color: rgba($color: #373737a5, $alpha: .8);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #363636;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(224, 224, 224);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 255, 255);
 }
