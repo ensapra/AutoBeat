@@ -1,7 +1,7 @@
 {
   "name": "Spotify Auto Adder",
   "short_name": "Spadd",
-  "theme_color": "#212121",
+  "theme_color": "#21212",
   "background_color": "#212121",
   "display": "standalone",
   "scope": "./",
