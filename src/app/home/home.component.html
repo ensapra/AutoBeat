@@ -1,6 +1,6 @@
 <div class="song" [ngStyle]="this.visual.bkgColor()">
     <div class="image">
-        <img #targetImage async src={{getTrackImage()}}>
+        <img async #targetImage async src={{getTrackImage()}} alt="Track Image">
     </div>
     <div class="playlist">
         <p *ngIf="this.apiRequester.currentTrack?.playlist == undefined, else playlistContent">You're not currently playing a Playlist</p>
@@ -18,7 +18,7 @@
         <div class="progressContainer" [ngStyle]="this.visual.progressContainerSettings()">
             <div class="progress" [ngStyle]="this.visual.progressSettings()"></div>
         </div>
-        <button (click)="this.addCurrentSong()" [ngStyle]="this.visual.getButtonColor()" [disabled]="this.canAdd()">
+        <button (click)="this.addCurrentSong()" [ngStyle]="this.visual.getButtonColor()" [disabled]="this.canAdd()" aria-label="Add song to playlist">
             <mat-icon fontIcon="add_circle"></mat-icon>
         </button>
         <div class="state">
@@ -31,7 +31,7 @@
 </div>
 
 <ng-template #playlistContent>
-    <img async src="{{this.getPlaylistImage()}}">
+    <img async src="{{this.getPlaylistImage()}}" alt="Playlist Image">
     <div class="title">
         <p *ngIf="this.config.loadConfig().autoAdd, else playing">Adding songs to: </p>
         <h1>{{this.apiRequester.currentTrack?.playlist?.name}}</h1>

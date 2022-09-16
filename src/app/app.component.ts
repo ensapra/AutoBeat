@@ -1,5 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Subscription } from 'rxjs';
 import { ConfigurationComponent } from './configuration/configuration.component';
+import { HistoryComponent } from './history/history.component';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +12,52 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 })
 export class AppComponent {
 
-  @ViewChild(ConfigurationComponent) child!:ConfigurationComponent;
+  @ViewChild("configComponent", {read: ViewContainerRef}) private configRef!: ViewContainerRef;
+  @ViewChild("configDrawer") private configDrawer!: MatSidenav;
+
+
+  @ViewChild("historyComponent", {read: ViewContainerRef}) private historyRef!: ViewContainerRef;
+  @ViewChild("historyDrawer") private historyDrawer!: MatSidenav;
+
+  private configSub!:Subscription;
+  private historySub!:Subscription;
+
   constructor(){
   }
   title = 'spotify-auto-adder'
-  saveConfig()
-  {
-    this.child.saveConfiguration();
+  ngAfterViewInit() {
+    import('./configuration/configuration.component').then(() => {
+      const compRef = this.configRef.createComponent(ConfigurationComponent).instance;
+      compRef.closedEvent.subscribe(()=>{
+        this.configDrawer.toggle();
+        compRef.saveConfiguration();
+      })
+    });  
+/*     this.configSub = this.configDrawer.openedChange.subscribe(()=>{
+      import('./configuration/configuration.component').then(() => {
+        const compRef = this.configRef.createComponent(ConfigurationComponent).instance;
+        compRef.closedEvent.subscribe(()=>{
+          this.configDrawer.toggle();
+          compRef.saveConfiguration();
+        })
+        this.configSub.unsubscribe();
+      });  
+    })
+ */
+    import('./history/history.component').then(() => {
+      const compRef = this.historyRef.createComponent(HistoryComponent).instance;
+      compRef.closedEvent.subscribe(()=>{
+        this.historyDrawer.toggle();
+      })
+    });
+/*     this.historySub = this.historyDrawer.openedChange.subscribe(()=>{
+      import('./history/history.component').then(() => {
+        const compRef = this.historyRef.createComponent(HistoryComponent).instance;
+        compRef.closedEvent.subscribe(()=>{
+          this.historyDrawer.toggle();
+        })
+        this.historySub.unsubscribe();
+      });
+    }) */
   }
 }
