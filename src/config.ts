@@ -1,7 +1,7 @@
 export class AppSettings{
     public static Client_ID= "5210ad2cc0cd498f95fb856c90f44d5c";
     public static Client_Secret = "2a03f9d1b67a4aaf9e2946266cdbe2e9";
-    public static RedirectUri = 'https://darksapra.github.io'
+    public static RedirectUri = 'https://spotify-auto-add.web.app'
     public static Scopes = [
         //Listening History
         'user-read-recently-played',
