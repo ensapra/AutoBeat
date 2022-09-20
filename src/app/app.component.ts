@@ -1,8 +1,9 @@
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Subscription } from 'rxjs';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HistoryComponent } from './history/history.component';
+import { ConfiguratorService } from './services/configurator.service';
+import { SpotifyService } from './services/spotify.service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,17 @@ export class AppComponent {
 
 
   constructor(){
+    if (typeof Worker !== 'undefined') {
+      // Create a new
+      const worker = new Worker(new URL('./auto-adder.worker', import.meta.url));
+      worker.onmessage = (data) => {
+        console.log(`page got message: ${data}`);
+      };
+      worker.postMessage("Nothing babe");
+    } else {
+      // Web workers are not supported in this environment.
+      // You should add a fallback so that your program still executes correctly.
+    }
   }
   title = 'spotify-auto-adder'
   ngAfterViewInit() {
@@ -59,3 +71,4 @@ export class AppComponent {
     }) */
   }
 }
+

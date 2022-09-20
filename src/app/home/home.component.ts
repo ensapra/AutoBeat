@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
   addCurrentSong()
   {
     if(this.apiRequester.playState != undefined)
-      this.apiRequester.autoAdd(this.apiRequester.playState);
+      this.apiRequester.addCurrentSong(this.apiRequester.playState);
   }
 
   initialize()
