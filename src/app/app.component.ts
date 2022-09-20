@@ -2,8 +2,6 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HistoryComponent } from './history/history.component';
-import { ConfiguratorService } from './services/configurator.service';
-import { SpotifyService } from './services/spotify.service';
 
 @Component({
   selector: 'app-root',
