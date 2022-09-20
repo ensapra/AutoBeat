@@ -19,8 +19,6 @@ export class AppComponent {
   @ViewChild("historyComponent", {read: ViewContainerRef}) private historyRef!: ViewContainerRef;
   @ViewChild("historyDrawer") private historyDrawer!: MatSidenav;
 
-  private configSub!:Subscription;
-  private historySub!:Subscription;
 
   constructor(){
   }
