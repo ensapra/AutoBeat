@@ -643,6 +643,7 @@ int drawable btn_radio_on_mtrl 0x7f070056
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f070057
 int drawable compat_splash_screen 0x7f070058
 int drawable compat_splash_screen_no_icon_background 0x7f070059
+int drawable ic_launcher_background 0x7f07005a
 int drawable ic_launcher_foreground 0x7f07005b
 int drawable icon_background 0x7f07005c
 int drawable notification_action_background 0x7f07005d

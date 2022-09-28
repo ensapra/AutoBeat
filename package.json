@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "resources": "capacitor-resources -p android,ios"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,11 @@
     "@angular/platform-server": "^14.0.0",
     "@angular/router": "^14.0.0",
     "@angular/service-worker": "^14.0.0",
+    "@capacitor/android": "^4.3.0",
+    "@capacitor/app": "^4.0.1",
+    "@capacitor/core": "^4.3.0",
+    "@capacitor/ios": "^4.3.0",
+    "capacitor-resources": "^2.0.5",
     "node-vibrant": "^3.1.6",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -32,6 +38,7 @@
     "@angular-devkit/build-angular": "^14.2.1",
     "@angular/cli": "~14.2.1",
     "@angular/compiler-cli": "^14.0.0",
+    "@capacitor/cli": "^4.3.0",
     "@types/jasmine": "~4.0.0",
     "@types/node": "^18.7.16",
     "jasmine-core": "~4.3.0",
@@ -45,6 +52,15 @@
   "overrides": {
     "node-vibrant": {
       "@vibrant/image-node": {
+        "@jimp/types": {
+          "@jimp/jpeg": {
+            "jpeg-js": "^0.4.4"
+          }
+        }
+      }
+    },
+    "capacitor-resources": {
+      "jimp": {
         "@jimp/types": {
           "@jimp/jpeg": {
             "jpeg-js": "^0.4.4"

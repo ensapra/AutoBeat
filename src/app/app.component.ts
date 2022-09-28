@@ -1,7 +1,9 @@
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef,NgZone } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HistoryComponent } from './history/history.component';
+import { Router } from '@angular/router';
+import { App, URLOpenListenerEvent } from '@capacitor/app';
 
 @Component({
   selector: 'app-root',

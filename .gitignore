@@ -2,6 +2,16 @@
 
 # Compiled output
 /dist
+
+dist/*
+!dist/spotify-auto-adder/
+
+dist/spotify-auto-adder/*
+!dist/spotify-auto-adder/browser
+
+dist/spotify-auto-adder/browser/*
+!dist/spotify-auto-adder/browser/.well-known
+
 /tmp
 /out-tsc
 /bazel-out
