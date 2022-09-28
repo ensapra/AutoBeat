@@ -1,0 +1,5 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { "namespace": "android_app", "package_name": "com.sapra.spadd",
+                 "sha256_cert_fingerprints": ["42:28:03:70:BC:41:BF:51:54:48:A8:2D:A3:4B:FC:69:BE:54:6B:67:69:8E:1B:79:9C:D6:3A:0B:8D:21:2E:02"] }
+  }]

@@ -1,5 +1,5 @@
 [{
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target" : { "namespace": "android_app", "package_name": "com.sapra.spadd",
-                 "sha256_cert_fingerprints": ["52:F3:7E:31:37:62:A8:87:34:73:BB:39:F0:06:B8:56:AE:FF:4F:C9:3C:BB:2C:94:D3:DA:19:10:C4:FB:3B:68"] }
+                 "sha256_cert_fingerprints": ["42:28:03:70:BC:41:BF:51:54:48:A8:2D:A3:4B:FC:69:BE:54:6B:67:69:8E:1B:79:9C:D6:3A:0B:8D:21:2E:02"] }
   }]

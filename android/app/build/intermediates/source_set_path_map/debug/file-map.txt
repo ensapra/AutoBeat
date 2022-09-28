@@ -23,3 +23,4 @@ com.sapra.spadd.app-debug-21 F:\Projects\Coding\auto-adder-spotify\android\app\s
 com.sapra.spadd.app-main-22 F:\Projects\Coding\auto-adder-spotify\android\app\src\main\res
 com.sapra.spadd.app-packaged_res-23 F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\packaged_res\debug
 com.sapra.spadd.app-packaged_res-24 F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\android\capacitor\build\intermediates\packaged_res\debug
+com.sapra.spadd.app-packaged_res-25 F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\app\android\build\intermediates\packaged_res\debug
