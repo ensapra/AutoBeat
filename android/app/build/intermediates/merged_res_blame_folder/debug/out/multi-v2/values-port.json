@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.sapra.spadd.app-mergeDebugResources-18:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\pauso\\.gradle\\caches\\transforms-3\\993bb2c7c16ef7a9e633bdc9fba6f791\\transformed\\appcompat-1.4.2\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

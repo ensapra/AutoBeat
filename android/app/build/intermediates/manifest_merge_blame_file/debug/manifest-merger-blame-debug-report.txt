@@ -1,0 +1,102 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.sapra.spadd"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="22"
+8-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
+10
+11    <!-- Permissions -->
+12
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:40:5-67
+13-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:40:22-64
+14
+15    <application
+15-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:4:5-36:19
+16        android:allowBackup="true"
+16-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:5:9-35
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.8.0] C:\Users\pauso\.gradle\caches\transforms-3\d301ca9aafa5e75334a9bedd77d94cff\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+18        android:debuggable="true"
+19        android:icon="@mipmap/ic_launcher"
+19-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:6:9-43
+20        android:label="@string/app_name"
+20-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:7:9-41
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:8:9-54
+22        android:supportsRtl="true"
+22-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:9:9-35
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme" >
+24-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:10:9-40
+25        <activity
+25-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:12:9-25:20
+26            android:name="com.sapra.spadd.MainActivity"
+26-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:14:13-56
+27            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+27-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:13:13-129
+28            android:exported="true"
+28-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:18:13-36
+29            android:label="@string/title_activity_main"
+29-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:15:13-56
+30            android:launchMode="singleTask"
+30-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:17:13-44
+31            android:theme="@style/AppTheme.NoActionBarLaunch" >
+31-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:16:13-62
+32            <intent-filter>
+32-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:20:13-23:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:21:17-69
+33-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:21:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:22:17-77
+35-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:22:27-74
+36            </intent-filter>
+37        </activity>
+38
+39        <provider
+40            android:name="androidx.core.content.FileProvider"
+40-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:28:13-62
+41            android:authorities="com.sapra.spadd.fileprovider"
+41-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:29:13-64
+42            android:exported="false"
+42-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:30:13-37
+43            android:grantUriPermissions="true" >
+43-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:31:13-47
+44            <meta-data
+44-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:32:13-34:64
+45                android:name="android.support.FILE_PROVIDER_PATHS"
+45-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:33:17-67
+46                android:resource="@xml/file_paths" />
+46-->F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:34:17-51
+47        </provider>
+48        <provider
+48-->[androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+49            android:name="androidx.startup.InitializationProvider"
+49-->[androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+50            android:authorities="com.sapra.spadd.androidx-startup"
+50-->[androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+51            android:exported="false" >
+51-->[androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+52            <meta-data
+52-->[androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+53                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+53-->[androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+54                android:value="androidx.startup" />
+54-->[androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+55            <meta-data
+55-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\pauso\.gradle\caches\transforms-3\5d58f83dad4d1ef60562a391f50cb705\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+56                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+56-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\pauso\.gradle\caches\transforms-3\5d58f83dad4d1ef60562a391f50cb705\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+57                android:value="androidx.startup" />
+57-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\pauso\.gradle\caches\transforms-3\5d58f83dad4d1ef60562a391f50cb705\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+58        </provider>
+59    </application>
+60
+61</manifest>

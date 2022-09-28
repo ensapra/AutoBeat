@@ -1,0 +1,6 @@
+{
+	"appId": "com.sapra.spadd",
+	"appName": "spadd",
+	"webDir": "dist/spotify-auto-adder/browser",
+	"bundledWebRuntime": false
+}
