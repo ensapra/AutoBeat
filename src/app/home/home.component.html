@@ -2,9 +2,34 @@
     <div class="image">
         <img async #targetImage async src={{getTrackImage()}} alt="Track Image">
     </div>
-    <div class="playlist">
-        <p *ngIf="this.apiRequester.currentTrack?.playlist == undefined, else playlistContent">You're not currently playing a Playlist</p>
-    </div>
+    
+    
+    <mat-tab-group class="tabs" mat-align-tabs="center">
+        <mat-tab label="Spotify playlist">
+            <div class="playlist">
+                <p *ngIf="this.apiRequester.currentTrack?.playlist == undefined, else playlistContent">You're not currently playing a Playlist</p>
+            </div>
+        </mat-tab>
+        <mat-tab label="Custom Mode">
+            <div class="playlist">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Playlist Name</mat-label>
+                    <input type="text"
+                            placeholder="Select Playlist"
+                            matInput
+                            [formControl]="myControl"
+                            [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of availablePlaylists | async" [value]="option.name">
+                        {{option.name}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    
+    
     <div class="player">
         <h1 *ngIf="this.apiRequester.currentTrack == undefined">Nothing playing</h1>
         <h1>{{this.apiRequester.currentTrack?.name}}</h1>

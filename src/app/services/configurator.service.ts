@@ -18,7 +18,7 @@ export class ConfiguratorService {
       return result;
     }
     else
-      return new AutoAdderConfiguration(false, 80, false, 20);
+      return new AutoAdderConfiguration(false, 80, false, 20, false, false);
   }
   saveConfiguration(config: AutoAdderConfiguration){
     localStorage.setItem("configuration", JSON.stringify(config));
@@ -32,10 +32,16 @@ export class AutoAdderConfiguration{
   public whenToAdd:number = 80;
   public autoRemove: boolean = false;
   public whenToRemove: number = 20;
-  constructor(autoADD: boolean, whenToAdd: number, autoRemove: boolean, whenToRemove: number){
+
+  public custom_randomMode: boolean = false;
+  public custom_recommendedSongs: boolean = false;
+
+  constructor(autoADD: boolean, whenToAdd: number, autoRemove: boolean, whenToRemove: number, custom_randomMode:boolean, custom_recommendedSongs:boolean){
     this.autoAdd = autoADD;
     this.whenToAdd = whenToAdd;
     this.autoRemove = autoRemove;
     this.whenToRemove = whenToRemove;
+    this.custom_randomMode = custom_randomMode;
+    this.custom_recommendedSongs = custom_recommendedSongs;
   }
 }

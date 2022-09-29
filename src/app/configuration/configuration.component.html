@@ -20,6 +20,21 @@
             <div class="description" *ngIf="!currentConfig.autoRemove;else removeDescription">Automatically remove tracks after a certain period</div>
             <mat-slider [disabled]="!currentConfig.autoRemove" [(ngModel)]="currentConfig.whenToRemove"  [thumbLabel] = "true"></mat-slider>
         </div>
+
+        <div class="configPack">
+            <div class="topRow">
+                <div class="action">Custom Mode:</div>
+            </div>
+            <div class="description">
+               Randomize songs in track without preferences:
+                <mat-slide-toggle  [(ngModel)]="currentConfig.custom_randomMode"></mat-slide-toggle>
+            </div>
+            <div class="description">
+                Recommend tracks from a playlist:
+                <mat-slide-toggle  [(ngModel)]="currentConfig.custom_recommendedSongs"></mat-slide-toggle>
+            </div>
+        </div>
+
         <div class="configPack">
             <div class="topRow">
                 <div class="action">Clear all your data</div>

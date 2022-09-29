@@ -54,6 +54,11 @@ mat-icon:hover{
 .description{
     margin: 5px 0 0 20px;
     color: #c0c0c0;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .footer{

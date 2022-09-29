@@ -13,7 +13,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpotifyHTTPInterceptorService } from './services/spotify-httpinterceptor.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -26,6 +26,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { RouterModule } from '@angular/router';
     MatProgressBarModule,
     MatSliderModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,
@@ -53,6 +56,8 @@ import { RouterModule } from '@angular/router';
     FlexLayoutModule,
     MatIconModule,
     MatButtonModule,
+    MatTabsModule,
+    MatAutocompleteModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable

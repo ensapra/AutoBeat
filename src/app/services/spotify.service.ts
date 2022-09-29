@@ -104,6 +104,11 @@ export class SpotifyService {
     return this.http.get<Playlist>(url);
   }
 
+  getPlaylists(){
+    const url = "https://api.spotify.com/v1/me/playlists?limit=50";
+    return this.http.get(url)
+  }
+
   getRecentlyPlayed(){
     let json = localStorage.getItem("previousTracks");
     if(json != null)

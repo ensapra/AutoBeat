@@ -8,8 +8,8 @@
     grid-template-columns: 50% 45% 5%;
     grid-template-areas: 
     ". . ."
-    "image . ."
-    "image playlist ."
+    "image tabs ."
+    "image tabs ."
     "image player ."
     ". . .";
 }
@@ -29,10 +29,16 @@
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.295));
 }
 
-.song .playlist{
-    grid-area: playlist;
+.song .tabs{
+    grid-area: tabs;
+    height: calc(25vh + 10px);
+}
+
+.playlist{
     display: flex;
     position: relative;
+    height: calc(100% - 10px);
+    padding: 10px 0 0 0;
 }
 
 .playlist img{
@@ -115,7 +121,6 @@ p{
     transition: .5s;
 }
 
-
 @media screen and (max-width: 770px) {
     .song{
         column-gap: 40px;
@@ -127,12 +132,12 @@ p{
             grid-template-columns: 100%;
             grid-template-areas: 
             "image"
-            "playlist"
+            "tabs"
             "player"
         }
 
-    .playlist{
-        max-height: 10vh;
+    .tabs{
+        max-height: 15vh;
         margin: 10px;
         margin-left: 20px;
     }

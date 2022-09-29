@@ -1,7 +1,10 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 import { Palette } from 'node-vibrant/lib/color';
-import {  Observable, Subscription } from 'rxjs';
+import { emit } from 'process';
+import {  concatMap, map, merge, mergeMap, Observable, of, startWith, Subscription } from 'rxjs';
+import { Playlist } from '../models/playlist.model';
 import { TrackState } from '../models/track.model';
 import { User } from '../models/user.model';
 import { AuthorizationService } from '../services/authorization.service';
@@ -25,7 +28,8 @@ export class HomeComponent implements OnInit {
   //protected playlist: Playlist|undefined;
   private onChangeSubscription:Subscription|undefined;
   private onRefreshSubscription:Subscription|undefined;
-
+  availablePlaylists: Observable<Playlist[]> |undefined;
+  myControl = new FormControl('');
   protected palette: Palette|undefined;
   constructor(private auth: AuthorizationService, protected apiRequester: SpotifyService, protected visual: VisualService, protected config: ConfiguratorService, private zone: NgZone) {
     if(window.location.search.length > 0){
@@ -45,7 +49,24 @@ export class HomeComponent implements OnInit {
             this.initialize());
         });
     });
+    this.apiRequester.getPlaylists().subscribe((data:any) => {
+      const playlists = data.items as Playlist[];
+      this.availablePlaylists = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(
+        (value => {
+          return this._filter(value || '', playlists)
+        })))
+    })
 
+/*     this.availablePlaylists = this.apiRequester.getPlaylists().pipe(
+      concatMap( data => from(this.myControl.valueChanges.pipe(mergeMap((value:string)=> this._filter(value, data as Playlist[])))))
+    ); */
+  }
+
+  private _filter(value: string, existing: Playlist[]): Playlist[] {
+    const filterValue = value.toLowerCase();
+    return existing.filter(playlist => playlist.name.toLowerCase().includes(filterValue));
   }
 
   ngOnInit(): void {
