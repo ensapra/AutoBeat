@@ -4,6 +4,7 @@ import { filter, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { SpotifyAuthValStorage } from '../models/auth.model';
 import { from, Observable } from 'rxjs';
+import { Capacitor } from '@capacitor/core';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,18 @@ export class AuthorizationService {
   private clientId: string = AppSettings.Client_ID;
   private clientSecret: string = AppSettings.Client_Secret;
   private scope = AppSettings.Scopes;
-  private redirectUri = AppSettings.RedirectUri;
 
   public authorizationValues: SpotifyAuthValStorage|undefined;
 
   constructor(private router: Router) { 
     this.authorize();
+  }
+
+  getRedirectDirection():string{
+    if(Capacitor.isNativePlatform())
+      return AppSettings.AppScheme;
+    else
+      return AppSettings.RedirectUri;
   }
   public authorize()
   {
@@ -38,7 +45,7 @@ export class AuthorizationService {
       url += '?response_type=code';
       url += '&client_id=' + this.clientId;
       url += '&scope=' + this.scope;
-      url += '&redirect_uri=' +encodeURI(this.redirectUri);
+      url += '&redirect_uri=' +encodeURI(this.getRedirectDirection());
       url += '&state=authored';
       window.location.href = url;
     }
@@ -48,7 +55,7 @@ export class AuthorizationService {
     const params = new URLSearchParams({
         grant_type: "authorization_code",
         code : code,
-        redirect_uri : encodeURI(this.redirectUri),
+        redirect_uri : encodeURI(this.getRedirectDirection()),
     });
     return this.callAuthorizationApi(params);
   }

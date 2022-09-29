@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { App, URLOpenListenerEvent } from '@capacitor/app';
 import { Palette } from 'node-vibrant/lib/color';
 import {  Observable, Subscription } from 'rxjs';
 import { TrackState } from '../models/track.model';
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
   private onRefreshSubscription:Subscription|undefined;
 
   protected palette: Palette|undefined;
-  constructor(private auth: AuthorizationService, protected apiRequester: SpotifyService, protected visual: VisualService, protected config: ConfiguratorService) {
+  constructor(private auth: AuthorizationService, protected apiRequester: SpotifyService, protected visual: VisualService, protected config: ConfiguratorService, private zone: NgZone) {
     if(window.location.search.length > 0){
       this.handleRedirect().subscribe(
         () => this.initialize()
@@ -34,7 +35,19 @@ export class HomeComponent implements OnInit {
     }
     else
       this.initialize();
+    
+      App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
+        this.zone.run(() => {
+          const search = event.url.split("://").pop();
+          const urlParams = new URLSearchParams(search);
+          const code = urlParams.get('code')
+          this.auth.fetchAccessToken(code).subscribe(()=>
+            this.initialize());
+        });
+    });
+
   }
+
   ngOnInit(): void {
   }
   ngOnDestroy(){

@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "resources": "capacitor-resources -p android,ios",
-    "deploy": "ng build && npx cap sync && npx cap run android"
+    "deploy": "ng build && copyfiles .well-known/assetlinks.json dist/spotify-auto-adder/browser && npx cap sync && npx cap run android"
   },
   "private": true,
   "dependencies": {

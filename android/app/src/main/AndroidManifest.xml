@@ -25,9 +25,14 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="spotify-auto-add.web.app/" />
+                <data android:scheme="https" android:host="spotify-auto-add.web.app" />
             </intent-filter>
-
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="spadd"/>
+            </intent-filter>
         </activity>
 
         <provider

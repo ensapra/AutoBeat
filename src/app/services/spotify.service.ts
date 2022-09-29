@@ -36,6 +36,8 @@ export class SpotifyService {
           this.currentTrack = track;
           this.onChangeTrack.next({previousTrack:previousTrack, state:this.playState, currentTrack:this.currentTrack});
         });
+      if(this.currentTrack?.trackState == TrackState.NotOnPlaylist)
+        this.checkNextStep(this.currentTrack, data);
       return this.playState;
     }));
   }
@@ -123,7 +125,7 @@ export class SpotifyService {
           return of("exists");
       }))
   }
-   addCurrentSong(state: PlayingState){
+  addCurrentSong(state: PlayingState){
     const val = this.isPlayingPlaylist(this.playState);
     if(val.isPlay){
       this.addTrackToPlaylist(state.item, val.id).subscribe((result:any)=>{
@@ -139,7 +141,41 @@ export class SpotifyService {
     }
   }
   
+  protected checkNextStep(currentTrack:Track, state: PlayingState){
+    const conf = this.config.loadConfig();
+    const progress = (state.progress_ms/currentTrack.duration_ms)*100;
+    if(state != null)
+      {
+        if(conf.autoAdd && progress > conf.whenToAdd)
+          this.autoAdd(state);
+        
+        if(conf.autoRemove && progress > conf.whenToRemove) 
+          this.autoRemove(state);
+      }
+  }
+
+  autoAdd(state: PlayingState){
+    if(this.currentTrack?.playlist != undefined)
+    {
+      const playlistId = this.currentTrack.playlist.id;
+      this.addTrackToPlaylist(state.item, playlistId).subscribe((result:any)=>{
+        if(this.currentTrack != undefined)
+        {
+          if(result == "success" && this.currentTrack != undefined){
+            this.currentTrack.trackState = TrackState.AddedToPlaylist;
+          }else if(result=="exists"){
+            this.currentTrack.trackState = TrackState.AlreadyOnPlaylist;
+          }
+        }
+      });
+    }
+    else
+    {
+      if(this.currentTrack != undefined)
+        this.currentTrack.trackState = TrackState.NotOnPlaylist;
+    }
+  }
   autoRemove(state: PlayingState){
-  
+
   }
 }

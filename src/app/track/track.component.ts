@@ -32,7 +32,6 @@ export class TrackComponent implements OnInit {
         if(width > 100 && height > 100)
         {
           this.trackImageURL = this.track?.album.images[i].url;
-          console.log(i);
           break;
         }
       }

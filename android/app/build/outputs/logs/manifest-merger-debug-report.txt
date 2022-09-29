@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:33:9-41:20
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:38:9-46:20
 	android:grantUriPermissions
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:37:13-47
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:42:13-47
 	android:authorities
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:35:13-64
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:40:13-64
 	android:exported
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:36:13-37
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:41:13-37
 	android:name
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:34:13-62
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:39:13-62
 manifest
-ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
 MERGED from [:capacitor-app] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-android] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-13:12
@@ -50,25 +50,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\pauso\.g
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\pauso\.gradle\caches\transforms-3\be3853f6530b857cdcdd10e54a8dea66\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [org.apache.cordova:framework:10.1.1] C:\Users\pauso\.gradle\caches\transforms-3\df7ef5985dbc7692cba1c8e7fb0451d5\transformed\jetified-framework-10.1.1\AndroidManifest.xml:20:1-27:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\c6384fbb45cc445cf16cf1019af3a1d6\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
 	package
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-47:12
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:4:5-42:19
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:4:5-47:19
 MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-11:19
 MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-11:19
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
@@ -96,7 +96,7 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\pauso\.gradle\cach
 	android:theme
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:10:9-40
 activity#com.sapra.spadd.MainActivity
-ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:12:9-31:20
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:12:9-36:20
 	android:label
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:15:13-56
 	android:launchMode
@@ -119,7 +119,7 @@ category#android.intent.category.LAUNCHER
 ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:22:17-77
 	android:name
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:22:27-74
-intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:spotify-auto-add.web.app/+data:scheme:https
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:spotify-auto-add.web.app+data:scheme:https
 ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:24:13-29:29
 	android:autoVerify
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:24:28-53
@@ -136,15 +136,19 @@ ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidMan
 	android:name
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:27:27-75
 data
-ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:28:17-89
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:28:17-88
 	android:host
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:28:46-86
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:28:46-85
 	android:scheme
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:28:23-45
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:spadd
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:30:13-35:29
+	android:autoVerify
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:30:28-53
 uses-permission#android.permission.INTERNET
-ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:46:5-67
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:51:5-67
 	android:name
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:46:22-64
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:51:22-64
 uses-sdk
 INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
@@ -230,11 +234,11 @@ INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\Android
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:38:13-40:64
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:43:13-45:64
 	android:resource
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:40:17-51
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:45:17-51
 	android:name
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:39:17-67
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:44:17-67
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\pauso\.gradle\caches\transforms-3\5d58f83dad4d1ef60562a391f50cb705\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:26:9-34:20

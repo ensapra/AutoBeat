@@ -21,25 +21,9 @@ export class AppComponent {
   @ViewChild("historyDrawer") private historyDrawer!: MatSidenav;
 
 
-  constructor(private router: Router, private zone: NgZone) {
-    this.initializeApp();
+  constructor() {
   }
 
-  initializeApp() {
-      App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
-          this.zone.run(() => {
-              // Example url: https://beerswift.app/tabs/tab2
-              // slug = /tabs/tab2
-              const slug = event.url.split(".app").pop();
-              console.log(slug);
-              if (slug) {
-                  this.router.navigateByUrl(slug);
-              }
-              // If no match, do nothing - let regular routing
-              // logic take over
-          });
-      });
-  }
   title = 'spotify-auto-adder'
   ngAfterViewInit() {
     import('./configuration/configuration.component').then(() => {
