@@ -16,26 +16,46 @@ export class SpotifyService {
   refresher = timer(0,2000);
   public currentTrack: Track|undefined;
   public playState: PlayingState|undefined;
-  
+  public selectedPlaylsit: Playlist|undefined;
+  protected playingPlaylist: Playlist|undefined;
+
+  public targetPlaylist: Playlist|undefined;
+
   public onChangeTrack : Subject<{previousTrack:Track|undefined, state: PlayingState|undefined, currentTrack:Track|undefined}> = new Subject();
 
   constructor(private http: HttpClient, private config: ConfiguratorService) { 
   }
 
   getPlayingState(){
-    const url = 	"https://api.spotify.com/v1/me/player/currently-playing";
+    const url = "https://api.spotify.com/v1/me/player/currently-playing";
     return this.http.get<PlayingState>(url).pipe(map((data:PlayingState)=>{
       this.playState = data != null ? data: undefined;
       if(this.currentTrack?.id !== data?.item?.id)
-        this.updateTrackState(data.item).subscribe((track:Track)=>{
+      {
+        let item = this.isPlayingPlaylist(this.playState);
+        this.getPlaylist(item.id).subscribe((playlist:Playlist)=>{
+          this.playingPlaylist = playlist;
+          this.refreshTargetPlaylist();
+        })
+        let array:Array<Track> = this.getRecentlyPlayed();
+        if(this.currentTrack != undefined)
+            array.push(this.currentTrack);
+        this.saveHistory(array);
+        const previousTrack = this.currentTrack;
+        this.currentTrack = data.item;
+        this.onChangeTrack.next({previousTrack:previousTrack, state:this.playState, currentTrack:this.currentTrack});
+      }
+        /* this.updateTrackState(data.item).subscribe((track:Track)=>{
           let array:Array<Track> = this.getRecentlyPlayed();
           if(this.currentTrack != undefined)
             array.push(this.currentTrack);
           this.saveHistory(array);
           const previousTrack = this.currentTrack;
           this.currentTrack = track;
+          if(!this.config.loadConfig().custom_enabled)
+            this.targetPlaylist = this.currentTrack.playlist;
           this.onChangeTrack.next({previousTrack:previousTrack, state:this.playState, currentTrack:this.currentTrack});
-        });
+        }); */
       if(this.currentTrack?.trackState == TrackState.NotOnPlaylist)
         this.checkNextStep(this.currentTrack, data);
       return this.playState;
@@ -46,7 +66,7 @@ export class SpotifyService {
     localStorage.setItem("previousTracks", JSON.stringify(array));
   }
   
-  private updateTrackState(track:Track):Observable<Track>{ //Not sure if it works
+/*   private updateTrackState(track:Track):Observable<Track>{ //Not sure if it works
     return new Observable((observer:any)=>{
       const playlist = this.isPlayingPlaylist(this.playState)
       if(playlist.isPlay){
@@ -71,7 +91,7 @@ export class SpotifyService {
           observer.next(undefined);
       }
     });
-  }
+  } */
 
   isPlayingPlaylist(state: PlayingState|undefined){
     if(state == undefined || state.context == undefined || state.context.uri == undefined)
@@ -98,10 +118,25 @@ export class SpotifyService {
     return 0;
   }
 
+  refreshTargetPlaylist(){
+    let config = this.config.loadConfig();
+    if(!config.custom_enabled)
+      this.targetPlaylist = this.playingPlaylist;
+    else
+      this.targetPlaylist = this.selectedPlaylsit;
+  }
+
   private getPlaylist(id: string|undefined)
   {
     const url = "https://api.spotify.com/v1/playlists/" + id;
     return this.http.get<Playlist>(url);
+  }
+
+  getPlaylistImage(){
+    if(this.targetPlaylist != undefined)
+      return this.targetPlaylist?.images[0].url;
+    else
+      return "";
   }
 
   getPlaylists(){
@@ -112,7 +147,7 @@ export class SpotifyService {
   getRecentlyPlayed(){
     let json = localStorage.getItem("previousTracks");
     if(json != null)
-      return JSON.parse(json);
+      return JSON.parse(json).slice(0,20);
     else
       return new Array<Track>();
   }
@@ -130,6 +165,7 @@ export class SpotifyService {
           return of("exists");
       }))
   }
+/*   
   addCurrentSong(state: PlayingState){
     const val = this.isPlayingPlaylist(this.playState);
     if(val.isPlay){
@@ -144,26 +180,26 @@ export class SpotifyService {
         }
       });
     }
-  }
+  } */
   
   protected checkNextStep(currentTrack:Track, state: PlayingState){
     const conf = this.config.loadConfig();
     const progress = (state.progress_ms/currentTrack.duration_ms)*100;
-    if(state != null)
+    if(state != null && this.currentTrack != undefined)
       {
         if(conf.autoAdd && progress > conf.whenToAdd)
-          this.autoAdd(state);
+          this.addTrackToTargetPlaylist(this.currentTrack);
         
         if(conf.autoRemove && progress > conf.whenToRemove) 
           this.autoRemove(state);
       }
   }
 
-  autoAdd(state: PlayingState){
-    if(this.currentTrack?.playlist != undefined)
+  addTrackToTargetPlaylist(track: Track){
+    if(this.targetPlaylist != undefined)
     {
-      const playlistId = this.currentTrack.playlist.id;
-      this.addTrackToPlaylist(state.item, playlistId).subscribe((result:any)=>{
+      const playlistId = this.targetPlaylist.id;
+      this.addTrackToPlaylist(track, playlistId).subscribe((result:any)=>{
         if(this.currentTrack != undefined)
         {
           if(result == "success" && this.currentTrack != undefined){
@@ -171,6 +207,7 @@ export class SpotifyService {
           }else if(result=="exists"){
             this.currentTrack.trackState = TrackState.AlreadyOnPlaylist;
           }
+          this.currentTrack.addedAtPlaylist = this.targetPlaylist!;
         }
       });
     }

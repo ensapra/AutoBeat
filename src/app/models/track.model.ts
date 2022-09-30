@@ -21,7 +21,7 @@ export interface Track {
     uri: string;
 
     trackState: TrackState;
-    playlist: Playlist
+    addedAtPlaylist: Playlist
 }
 
 export enum TrackState{

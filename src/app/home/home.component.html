@@ -4,15 +4,16 @@
     </div>
     
     
-    <mat-tab-group class="tabs" mat-align-tabs="center">
-        <mat-tab label="Spotify playlist">
+    <mat-tab-group class="tabs" mat-align-tabs="center" mat-stretch-tabs animationDuration="0ms"  (selectedTabChange)="changeMode($event)" [(selectedIndex)]="selectedIndex">
+        <mat-tab label="Auto Mode">
             <div class="playlist">
-                <p *ngIf="this.apiRequester.currentTrack?.playlist == undefined, else playlistContent">You're not currently playing a Playlist</p>
+                <p *ngIf="this.apiRequester.targetPlaylist == undefined, else playlistContent">You're not currently playing a Playlist</p>
             </div>
         </mat-tab>
         <mat-tab label="Custom Mode">
             <div class="playlist">
-                <mat-form-field class="example-full-width" appearance="fill">
+                <img  *ngIf="this.apiRequester.getPlaylistImage() != ''"async src="{{this.apiRequester.getPlaylistImage()}}" alt="Playlist Image">
+                <mat-form-field class="title" appearance="fill">
                     <mat-label>Playlist Name</mat-label>
                     <input type="text"
                             placeholder="Select Playlist"
@@ -20,7 +21,7 @@
                             [formControl]="myControl"
                             [matAutocomplete]="auto">
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of availablePlaylists | async" [value]="option.name">
+                        <mat-option *ngFor="let option of availablePlaylists | async" [value]="option.name" (onSelectionChange)="this.selectPlaylistOption(option)">
                         {{option.name}}
                         </mat-option>
                     </mat-autocomplete>
@@ -56,10 +57,10 @@
 </div>
 
 <ng-template #playlistContent>
-    <img async src="{{this.getPlaylistImage()}}" alt="Playlist Image">
+    <img async src="{{this.apiRequester.getPlaylistImage()}}" alt="Playlist Image">
     <div class="title">
         <p *ngIf="this.config.loadConfig().autoAdd, else playing">Adding songs to: </p>
-        <h1>{{this.apiRequester.currentTrack?.playlist?.name}}</h1>
+        <h1>{{this.apiRequester.targetPlaylist?.name}}</h1>
     </div>
 </ng-template>
 

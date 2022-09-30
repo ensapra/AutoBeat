@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   availablePlaylists: Observable<Playlist[]> |undefined;
   myControl = new FormControl('');
   protected palette: Palette|undefined;
+  protected selectedIndex;
   constructor(private auth: AuthorizationService, protected apiRequester: SpotifyService, protected visual: VisualService, protected config: ConfiguratorService, private zone: NgZone) {
     if(window.location.search.length > 0){
       this.handleRedirect().subscribe(
@@ -58,10 +59,7 @@ export class HomeComponent implements OnInit {
           return this._filter(value || '', playlists)
         })))
     })
-
-/*     this.availablePlaylists = this.apiRequester.getPlaylists().pipe(
-      concatMap( data => from(this.myControl.valueChanges.pipe(mergeMap((value:string)=> this._filter(value, data as Playlist[])))))
-    ); */
+    this.selectedIndex = this.config.loadConfig().custom_enabled ? 1:0;
   }
 
   private _filter(value: string, existing: Playlist[]): Playlist[] {
@@ -78,8 +76,8 @@ export class HomeComponent implements OnInit {
 
   addCurrentSong()
   {
-    if(this.apiRequester.playState != undefined)
-      this.apiRequester.addCurrentSong(this.apiRequester.playState);
+    if(this.apiRequester.currentTrack != undefined)
+      this.apiRequester.addTrackToTargetPlaylist(this.apiRequester.currentTrack);
   }
 
   initialize()
@@ -95,11 +93,19 @@ export class HomeComponent implements OnInit {
   getTrackImage(){
     return this.visual.getBestImageUrl(this.apiRequester.currentTrack?.album.images,this.targetElement?.nativeElement.offsetHeight)
   }
-  getPlaylistImage(){
-    if(this.apiRequester.currentTrack?.playlist != undefined)
-      return this.apiRequester.currentTrack?.playlist.images[0].url;
-    else
-      return "";
+  
+  changeMode(custom: any){
+    let config = this.config.loadConfig();
+    config.custom_enabled = custom.index == 1;
+    this.config.saveConfiguration(config);
+    this.apiRequester.refreshTargetPlaylist();
+    return custom.index;
+  }
+
+  selectPlaylistOption(playlist: Playlist)
+  {
+    this.apiRequester.selectedPlaylsit = playlist;
+    this.apiRequester.refreshTargetPlaylist();
   }
 
   canAdd():boolean{
