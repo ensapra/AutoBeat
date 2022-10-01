@@ -81,12 +81,9 @@ export class HomeComponent implements OnInit {
 
   initialize() {
     if (this.auth.authorizationValues)
-      this.onRefreshSubscription = this.apiRequester.refresher.subscribe(() => this.refreshCurrentlyPlaying());
+      this.onRefreshSubscription = this.apiRequester.refresher.subscribe(() => this.apiRequester.getPlayingState().subscribe());
   }
 
-  refreshCurrentlyPlaying() {
-    this.apiRequester.getPlayingState().subscribe();
-  }
   getTrackImage() {
     return this.visual.getBestImageUrl(this.apiRequester.currentTrack?.album.images, this.targetElement?.nativeElement.offsetHeight)
   }
