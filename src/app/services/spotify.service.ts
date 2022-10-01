@@ -45,17 +45,6 @@ export class SpotifyService {
         this.currentTrack = data.item;
         this.onChangeTrack.next({ previousTrack: previousTrack, state: this.playState, currentTrack: this.currentTrack });
       }
-      /* this.updateTrackState(data.item).subscribe((track:Track)=>{
-        let array:Array<Track> = this.getRecentlyPlayed();
-        if(this.currentTrack != undefined)
-          array.push(this.currentTrack);
-        this.saveHistory(array);
-        const previousTrack = this.currentTrack;
-        this.currentTrack = track;
-        if(!this.config.loadConfig().custom_enabled)
-          this.targetPlaylist = this.currentTrack.playlist;
-        this.onChangeTrack.next({previousTrack:previousTrack, state:this.playState, currentTrack:this.currentTrack});
-      }); */
       if (this.currentTrack?.trackState == TrackState.NotOnPlaylist)
         this.checkNextStep(this.currentTrack, data);
       return this.playState;

@@ -156,12 +156,13 @@ p{
     }
     .player h1{
         height: 20px;
-        font-size: min(2em, 5vw);
+        white-space:nowrap;
     }
     .player p{
         font-size: small;
         margin-top: 10px;
     }
+
     .player mat-icon{
         font-size: 40px;
         margin: 0px;
