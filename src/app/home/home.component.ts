@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
           this.initialize());
       });
     });
+
     this.apiRequester.getPlaylists().subscribe((data: any) => {
       const playlists = data.items as Playlist[];
       this.availablePlaylists = this.myControl.valueChanges.pipe(

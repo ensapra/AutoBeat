@@ -16,6 +16,7 @@ INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\Android
 INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
 INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
 MERGED from [:capacitor-app] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capawesome-capacitor-background-task] F:\Projects\Coding\auto-adder-spotify\node_modules\@capawesome\capacitor-background-task\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-android] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\pauso\.gradle\caches\transforms-3\993bb2c7c16ef7a9e633bdc9fba6f791\transformed\appcompat-1.4.2\AndroidManifest.xml:17:1-24:12
@@ -155,6 +156,8 @@ INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\Android
 INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 MERGED from [:capacitor-app] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-app] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capawesome-capacitor-background-task] F:\Projects\Coding\auto-adder-spotify\node_modules\@capawesome\capacitor-background-task\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capawesome-capacitor-background-task] F:\Projects\Coding\auto-adder-spotify\node_modules\@capawesome\capacitor-background-task\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-android] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-android] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41

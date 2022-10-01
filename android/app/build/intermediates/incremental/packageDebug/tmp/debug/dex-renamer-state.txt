@@ -1,4 +1,4 @@
-#Thu Sep 29 18:46:04 CEST 2022
+#Sat Oct 01 21:08:54 CEST 2022
 base.0=F\:\\Projects\\Coding\\auto-adder-spotify\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=F\:\\Projects\\Coding\\auto-adder-spotify\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=F\:\\Projects\\Coding\\auto-adder-spotify\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

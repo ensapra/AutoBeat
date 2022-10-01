@@ -1,55 +1,62 @@
 <div class="config">
-    <div class="internalBlock">
-        <div class="header">
-            <mat-icon (click)="close()" fonticon="arrow_forward_ios"></mat-icon>
-            <h1>Configuration:</h1>
-        </div>
+    <div class="header">
+        <mat-icon (click)="close()" fonticon="arrow_forward_ios"></mat-icon>
+        <h1>Configuration:</h1>
+    </div>
+
+
+    <div class="configParameters">
         <div class="configPack">
             <div class="topRow">
-                <div class="action">Automatically Add Track:</div>
+                <h2>Automatically Add Track:</h2>
                 <mat-slide-toggle  [(ngModel)]="currentConfig.autoAdd"></mat-slide-toggle>
             </div>
-            <div class="description" *ngIf="!currentConfig.autoAdd;else addDescription">Automatically add tracks after a certain period</div>
+            <p class="description" *ngIf="!currentConfig.autoAdd;else addDescription">Automatically add tracks after a certain period</p>
             <mat-slider [disabled]="!currentConfig.autoAdd" [(ngModel)]="currentConfig.whenToAdd"  [thumbLabel] = "true"></mat-slider>
         </div>
         <div class="configPack">
             <div class="topRow">
-                <div class="action">Automatically Remove Track:</div>
+                <h2>Automatically Remove Track:</h2>
                 <mat-slide-toggle  [(ngModel)]="currentConfig.autoRemove"></mat-slide-toggle>
             </div>
-            <div class="description" *ngIf="!currentConfig.autoRemove;else removeDescription">Automatically remove tracks after a certain period</div>
+            <p class="description" *ngIf="!currentConfig.autoRemove;else removeDescription">Automatically remove tracks after a certain period</p>
             <mat-slider [disabled]="!currentConfig.autoRemove" [(ngModel)]="currentConfig.whenToRemove"  [thumbLabel] = "true"></mat-slider>
         </div>
 
         <div class="configPack">
             <div class="topRow">
-                <div class="action">Custom Mode:</div>
+                <h2>Custom Mode:</h2>
             </div>
             <div class="description">
-               Randomize songs in track without preferences:
+                <p>Randomize songs in track without preferences:</p>
                 <mat-slide-toggle  [(ngModel)]="currentConfig.custom_randomMode"></mat-slide-toggle>
             </div>
             <div class="description">
-                Recommend tracks from a playlist:
+                <p>Recommend tracks from a playlist:</p>
                 <mat-slide-toggle  [(ngModel)]="currentConfig.custom_recommendedSongs"></mat-slide-toggle>
             </div>
         </div>
 
         <div class="configPack">
             <div class="topRow">
-                <div class="action">Clear all your data</div>
+                <h2 class="action">Clear all your data</h2>
+            </div>
+            <div class="description">
+                <p>Clear recently played lists, access tokens and configuration</p>
                 <button mat-raised-button color="accent" (click)="this.clearData()">Clear Data</button>
             </div>
-            <div class="description" >Clear recently played lists, access tokens and configuration</div>
         </div>
     </div>
+    
+    <div class="footer">
+        <a href="https://www.spotify.com" target="_blank">
+            <img async src="..\assets\Spotify_Logo_RGB_White.png">
+        </a>
+        <a href="https://github.com/DarkSapra" target="_blank">By: Pau Solsona</a>
+    </div>
+    
 </div>
-<div class="footer">
-    <a href="https://www.spotify.com" target="_blank">
-        <img async src="..\assets\Spotify_Logo_RGB_White.png">
-    </a>
-    <a href="https://github.com/DarkSapra" target="_blank">By: Pau Solsona</a>
-</div>
+
 
 
 
