@@ -29,6 +29,7 @@ export class SpotifyService {
   getPlayingState() {
     const url = "https://api.spotify.com/v1/me/player/currently-playing";
     return this.http.get<PlayingState>(url).pipe(map((data: PlayingState) => {
+      console.log("asd");
       this.playState = data != null ? data : undefined;
       if (this.currentTrack?.id !== data?.item?.id) {
         let item = this.isPlayingPlaylist(this.playState);
@@ -51,7 +52,7 @@ export class SpotifyService {
     }));
   }
   saveHistory(array: Array<Track>) {
-    array = array.filter((_, index) => index > array.length - 50)
+    array = array.filter((_, index) => index > array.length - 20);
     localStorage.setItem("previousTracks", JSON.stringify(array));
   }
 
@@ -158,7 +159,7 @@ export class SpotifyService {
   getRecentlyPlayed() {
     let json = localStorage.getItem("previousTracks");
     if (json != null)
-      return JSON.parse(json).slice(0, 20);
+      return JSON.parse(json);
     else
       return new Array<Track>();
   }
