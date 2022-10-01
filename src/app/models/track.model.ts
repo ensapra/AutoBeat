@@ -25,10 +25,9 @@ export interface Track {
 }
 
 export enum TrackState{
-    undefined,
-    NotPlayingPlaylist,
+    NoPlaylistPlaying,
+    NotOnPlaylist,
+    AlreadyOnPlaylist,
     AddedToPlaylist,
     RemovedFromPlaylist,
-    AlreadyOnPlaylist,
-    NotOnPlaylist
 }

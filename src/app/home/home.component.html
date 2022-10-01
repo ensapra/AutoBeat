@@ -2,35 +2,47 @@
     <div class="image">
         <img async #targetImage async src={{getTrackImage()}} alt="Track Image">
     </div>
-    
-    
-    <mat-tab-group class="tabs" mat-align-tabs="center" mat-stretch-tabs animationDuration="0ms"  (selectedTabChange)="changeMode($event)" [(selectedIndex)]="selectedIndex">
+
+
+    <mat-tab-group class="tabs" mat-align-tabs="center" mat-stretch-tabs animationDuration="0ms"
+        (selectedTabChange)="changeMode($event)" [(selectedIndex)]="selectedIndex">
         <mat-tab label="Auto Mode">
             <div class="playlist">
-                <p *ngIf="this.apiRequester.targetPlaylist == undefined, else playlistContent">You're not currently playing a Playlist</p>
+                <p *ngIf="this.apiRequester.targetPlaylist == undefined, else playlistContent">You're not currently
+                    playing a Playlist</p>
             </div>
         </mat-tab>
         <mat-tab label="Custom Mode">
             <div class="playlist">
-                <img  *ngIf="this.apiRequester.getPlaylistImage() != ''"async src="{{this.apiRequester.getPlaylistImage()}}" alt="Playlist Image">
+                <img *ngIf="this.apiRequester.getPlaylistImage() != ''" async
+                    src="{{this.apiRequester.getPlaylistImage()}}" alt="Playlist Image">
                 <mat-form-field class="title" appearance="fill">
-                    <mat-label>Playlist Name</mat-label>
-                    <input type="text"
-                            placeholder="Select Playlist"
-                            matInput
-                            [formControl]="myControl"
-                            [matAutocomplete]="auto">
-                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of availablePlaylists | async" [value]="option.name" (onSelectionChange)="this.selectPlaylistOption(option)">
-                        {{option.name}}
+                    <mat-label>Target playlist</mat-label>
+                    <mat-select #singleSelect placeholder="Playlist Name"
+                        (selectionChange)="this.selectPlaylistOption($event.value)">
+                        <mat-option>
+                            <ngx-mat-select-search [formControl]="myControl" placeholderLabel="Type Playlist Name"
+                                noEntriesFoundLabel="No playlist found"></ngx-mat-select-search>
                         </mat-option>
-                    </mat-autocomplete>
+                        <mat-option *ngFor="let option of availablePlaylists | async" [value]="option.name">
+                            {{option.name}}
+                        </mat-option>
+                    </mat-select>
+                    <!--                     <mat-label>Playlist Name</mat-label>
+                    <input type="text" placeholder="Select Playlist" matInput [formControl]="myControl"
+                        [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of availablePlaylists | async" [value]="option.name"
+                            (onSelectionChange)="this.selectPlaylistOption(option)">
+                            {{option.name}}
+                        </mat-option>
+                    </mat-autocomplete> -->
                 </mat-form-field>
             </div>
         </mat-tab>
     </mat-tab-group>
-    
-    
+
+
     <div class="player">
         <h1 *ngIf="this.apiRequester.currentTrack == undefined">Nothing playing</h1>
         <h1>{{this.apiRequester.currentTrack?.name}}</h1>
@@ -44,14 +56,16 @@
         <div class="progressContainer" [ngStyle]="this.visual.progressContainerSettings()">
             <div class="progress" [ngStyle]="this.visual.progressSettings()"></div>
         </div>
-        <button (click)="this.addCurrentSong()" [ngStyle]="this.visual.getButtonColor()" [disabled]="this.canAdd()" aria-label="Add song to playlist">
+        <button (click)="this.addCurrentSong()" [ngStyle]="this.visual.getButtonColor()" [disabled]="this.canAdd()"
+            aria-label="Add song to playlist">
             <mat-icon fontIcon="add_circle"></mat-icon>
         </button>
         <div class="state">
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 2" style='color: #5fff38;'>Added to the playlist</p>
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 3" style='color: #ff3838;'>Removed from the playlist</p>
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 4">On playlist</p>
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 5">Not Added</p>
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 0">Not playlist playing</p>
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 1">Not on the playlist</p>
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 2">Already on playlist</p>
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 3" style='color: #5fff38'>Added to playlist</p>
+            <p *ngIf="this.apiRequester.currentTrack?.trackState == 4" style='color: #ff3838'>Removed from playlist</p>
         </div>
     </div>
 </div>

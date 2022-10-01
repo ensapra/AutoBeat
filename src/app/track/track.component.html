@@ -9,11 +9,11 @@
             </span>
         </p>
         <div class="state">
-            <p *ngIf="track?.trackState == 2" style='color: #5fff38;'>Added to {{track?.addedAtPlaylist?.name}}</p>
-            <p *ngIf="track?.trackState == 3" style='color: #ff3838;'>Removed from {{track?.addedAtPlaylist?.name}}</p>
-            <p *ngIf="track?.trackState == 4">On {{track?.addedAtPlaylist?.name}}</p>
-            <p *ngIf="track?.trackState == 1">No playlist</p>
-            <p *ngIf="track?.trackState == 5">Not Added</p>
+            <p *ngIf="track?.trackState == 0">Not playlist playing</p>
+            <p *ngIf="track?.trackState == 1">Not on the playlist</p>
+            <p *ngIf="track?.trackState == 2">On {{track?.addedAtPlaylist?.name}}</p>
+            <p *ngIf="track?.trackState == 3" style='color: #5fff38'>Added to {{track?.addedAtPlaylist?.name}}</p>
+            <p *ngIf="track?.trackState == 4" style='color: #ff3838'>Removed from {{track?.addedAtPlaylist?.name}}</p>
         </div>
     </div>
 </div>

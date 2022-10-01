@@ -30,6 +30,7 @@
     "@capacitor/core": "^4.3.0",
     "@capacitor/ios": "^4.3.0",
     "capacitor-resources": "^2.0.5",
+    "ngx-mat-select-search": "^4.2.1",
     "node-vibrant": "^3.1.6",
     "rxjs": "~7.5.0",
     "tinycolor2": "^1.4.2",
