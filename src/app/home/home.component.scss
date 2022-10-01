@@ -106,8 +106,9 @@ p{
     margin-bottom: 15px;
     text-align: center;
 }
-.player .state{
+.player .state p{
     font-variant: small-caps;
+    margin: 0px;
 }
 .progressContainer {
     background-color: rgb(192, 192, 192);
@@ -147,7 +148,7 @@ p{
         padding: 0px;
     }
     .image{
-        margin: 10px 10px 0 10px;
+        margin: 10px 20px 0 20px;
         padding: 0px;
     }
     .playlist h1{
@@ -155,19 +156,20 @@ p{
     }
     .player h1{
         height: 20px;
+        font-size: min(2em, 5vw);
     }
     .player p{
         font-size: small;
         margin-top: 10px;
     }
     .player mat-icon{
-        font-size: 50px;
+        font-size: 40px;
         margin: 0px;
     }
     .player button{
-        margin: 10px;
-        width: 50px;
-        height: 50px;
+        margin: 5px;
+        width: 40px;
+        height: 40px;
     }
 }
 

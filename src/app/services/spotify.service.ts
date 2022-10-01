@@ -32,6 +32,7 @@ export class SpotifyService {
       this.playState = data != null ? data : undefined;
       if (this.currentTrack?.id !== data?.item?.id) {
         let item = this.isPlayingPlaylist(this.playState);
+        data.item.trackState = TrackState.NoPlaylistPlaying;
         this.getPlaylist(item.id).subscribe((playlist: Playlist) => {
           this.playingPlaylist = playlist;
           this.refreshTargetPlaylist();
