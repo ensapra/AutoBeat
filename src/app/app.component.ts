@@ -29,7 +29,6 @@ export class AppComponent {
         title: "Spadd is adding tracks",
         resume: true,
         text: "Loading playlist",
-        showWhen: true,
         icon: "icon"
       });
 
