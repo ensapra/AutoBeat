@@ -16,10 +16,7 @@ export class HistoryComponent implements OnInit {
   private subs:Subscription;
   constructor(private spotify: SpotifyService) { 
     this.subs = spotify.onChangeTrack.subscribe(()=>{
-      this.RecentlyPlayed=spotify.getRecentlyPlayed().reverse()
-/*       spotify.getRecentlyPlayed(20).subscribe((data:any)=>{
-        this.RecentlyPlayed = data;
-      }) */
+      this.RecentlyPlayed = spotify.getRecentlyPlayed().reverse()
     })
   }
 

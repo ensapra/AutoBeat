@@ -1,11 +1,10 @@
-import { Component, ViewChild, ViewContainerRef,NgZone } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, NgZone } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HistoryComponent } from './history/history.component';
+import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
+import { ConfiguratorService } from './services/configurator.service';
 import { App } from '@capacitor/app';
-import { BackgroundTask, BackgroundTaskPlugin, FinishOptions } from '@capawesome/capacitor-background-task';
-import { SpotifyService } from './services/spotify.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,30 +14,63 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent {
 
-  @ViewChild("configComponent", {read: ViewContainerRef}) private configRef!: ViewContainerRef;
+  @ViewChild("configComponent", { read: ViewContainerRef }) private configRef!: ViewContainerRef;
   @ViewChild("configDrawer") private configDrawer!: MatSidenav;
 
-  @ViewChild("historyComponent", {read: ViewContainerRef}) private historyRef!: ViewContainerRef;
+  @ViewChild("historyComponent", { read: ViewContainerRef }) private historyRef!: ViewContainerRef;
   @ViewChild("historyDrawer") private historyDrawer!: MatSidenav;
 
-  constructor() {
+  constructor(private config: ConfiguratorService) { 
+    // Enable background mode
+    BackgroundMode.setDefaults({ 
+      title: "Spadd is adding tracks",
+      resume: true,
+      text:"Loading playlist",
+      showWhen: true,
+      icon:"icon"
+    });
+
+    App.addListener('appStateChange', async ({ isActive }) => {
+      if (isActive) {
+        return;
+      }
+      const conf= this.config.loadConfig();
+      if(conf.autoAdd || conf.autoRemove)
+        BackgroundMode.enable();
+      else
+        BackgroundMode.disable();
+    });
+
+    BackgroundMode.on("activate").subscribe(()=>{
+      BackgroundMode.disableBatteryOptimizations();
+    })
   }
 
   title = 'spotify-auto-adder'
   ngAfterViewInit() {
     import('./configuration/configuration.component').then(() => {
       const compRef = this.configRef.createComponent(ConfigurationComponent).instance;
-      compRef.closedEvent.subscribe(()=>{
+      compRef.closedEvent.subscribe(() => {
         this.configDrawer.toggle();
         compRef.saveConfiguration();
       })
-    });  
+    });
 
     import('./history/history.component').then(() => {
       const compRef = this.historyRef.createComponent(HistoryComponent).instance;
-      compRef.closedEvent.subscribe(()=>{
+      compRef.closedEvent.subscribe(() => {
         this.historyDrawer.toggle();
       })
     });
   }
 }
+
+/* document.addEventListener('deviceready', function () {
+  // Android customization 
+
+  BackgroundMode.setDefaults({ text: 'Doing heavy tasks.' });
+
+  // Enable background mode
+  BackgroundMode.enable();
+  BackgroundMode.disableBatteryOptimizations();
+}, false); */

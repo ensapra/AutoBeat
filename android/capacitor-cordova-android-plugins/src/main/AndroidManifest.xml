@@ -3,7 +3,10 @@
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:amazon="http://schemas.amazon.com/apk/res/android">
 <application  >
-
+<service android:name="de.appplant.cordova.plugin.background.ForegroundService"/>
 </application>
-
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 </manifest>

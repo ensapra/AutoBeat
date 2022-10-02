@@ -5,6 +5,7 @@ import { PlayingState } from '../models/playingstate.model';
 import { map, Observable, switchMap, of, interval, Subject, timer } from 'rxjs';
 import { ConfiguratorService } from './configurator.service';
 import { Playlist } from '../models/playlist.model';
+import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
 
 
 @Injectable({
@@ -22,15 +23,15 @@ export class SpotifyService {
   public targetPlaylist: Playlist | undefined;
 
   public onChangeTrack: Subject<{ previousTrack: Track | undefined, state: PlayingState | undefined, currentTrack: Track | undefined }> = new Subject();
-
+  private notPlayingTracks: number = 0;
   constructor(private http: HttpClient, private config: ConfiguratorService) {
   }
 
-  getPlayingState() {
+  updatePlayState() {
     const url = "https://api.spotify.com/v1/me/player/currently-playing";
     return this.http.get<PlayingState>(url).pipe(map((data: PlayingState) => {
-      console.log("asd");
       this.playState = data != null ? data : undefined;
+      
       if (this.currentTrack?.id !== data?.item?.id) {
         let item = this.isPlayingPlaylist(this.playState);
         data.item.trackState = TrackState.NoPlaylistPlaying;
@@ -38,23 +39,48 @@ export class SpotifyService {
           this.playingPlaylist = playlist;
           this.refreshTargetPlaylist();
         })
+
         let array: Array<Track> = this.getRecentlyPlayed();
         if (this.currentTrack != undefined)
           array.push(this.currentTrack);
         this.saveHistory(array);
+
         const previousTrack = this.currentTrack;
         this.currentTrack = data.item;
         this.onChangeTrack.next({ previousTrack: previousTrack, state: this.playState, currentTrack: this.currentTrack });
       }
+
+      if(BackgroundMode.isActive())
+      {
+        if(this.currentTrack == undefined)
+        {
+          BackgroundMode.configure({
+            text: "Not playing a playlist"
+          })
+          this.notPlayingTracks++;
+          if(this.notPlayingTracks > 40)
+            BackgroundMode.disable();
+        }
+        else
+        {
+          this.notPlayingTracks = 0;
+          BackgroundMode.configure({
+            text: "The target playlist is " + this.targetPlaylist?.name
+          })
+        }
+      }
+
       if (this.currentTrack?.trackState == TrackState.NotOnPlaylist)
         this.checkNextStep(this.currentTrack, data);
       return this.playState;
     }));
   }
+
   saveHistory(array: Array<Track>) {
     array = array.filter((_, index) => index > array.length - 20);
     localStorage.setItem("previousTracks", JSON.stringify(array));
   }
+
 
   updateCurrentTrackState(playlist: Playlist | undefined) {
     if (this.currentTrack == undefined)
@@ -78,32 +104,6 @@ export class SpotifyService {
     }
 
   }
-  /*   private updateTrackState(track:Track):Observable<Track>{ //Not sure if it works
-      return new Observable((observer:any)=>{
-        const playlist = this.isPlayingPlaylist(this.playState)
-        if(playlist.isPlay){
-          this.isTrackInPlaylist(track.id, playlist.id).subscribe((isInPlaylist:boolean)=>{
-            if(isInPlaylist)
-              track.trackState = TrackState.AlreadyOnPlaylist;
-            else
-              track.trackState = TrackState.NotOnPlaylist;
-            this.getPlaylist(playlist.id).subscribe((playlist:Playlist)=>{
-              track.playlist = playlist;
-              observer.next(track);
-            })
-          })
-        }
-        else{
-          if(track != null)
-          {          
-            track.trackState = TrackState.NotPlayingPlaylist;
-            observer.next(track);
-          }
-          else
-            observer.next(undefined);
-        }
-      });
-    } */
 
   isPlayingPlaylist(state: PlayingState | undefined) {
     if (state == undefined || state.context == undefined || state.context.uri == undefined)
@@ -145,6 +145,9 @@ export class SpotifyService {
   }
 
   getPlaylistImage() {
+    if(BackgroundMode.isActive())
+      return ""
+
     if (this.targetPlaylist != undefined)
       return this.targetPlaylist?.images[0].url;
     else
@@ -176,22 +179,6 @@ export class SpotifyService {
         return of("exists");
     }))
   }
-  /*   
-    addCurrentSong(state: PlayingState){
-      const val = this.isPlayingPlaylist(this.playState);
-      if(val.isPlay){
-        this.addTrackToPlaylist(state.item, val.id).subscribe((result:any)=>{
-          if(this.currentTrack != undefined)
-          {
-            if(result == "success" && this.currentTrack != undefined){
-              this.currentTrack.trackState = TrackState.AddedToPlaylist;
-            }else if(result=="exists"){
-              this.currentTrack.trackState = TrackState.AlreadyOnPlaylist;
-            }
-          }
-        });
-      }
-    } */
 
   protected checkNextStep(currentTrack: Track, state: PlayingState) {
     const conf = this.config.loadConfig();

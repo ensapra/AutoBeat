@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1664659773165,
+  "timestamp": 1664725900447,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -12,13 +12,12 @@
       },
       "urls": [
         "/477.299f0ebd4de64316.js",
-        "/644.ac7ee20c501057cb.js",
         "/favicon.ico",
         "/index.html",
-        "/main.84ceb06dbda0b261.js",
+        "/main.870de17375716c76.js",
         "/manifest.webmanifest",
         "/polyfills.f91118986d5517f9.js",
-        "/runtime.c6efad873001dcad.js",
+        "/runtime.37a28fbaf7a2ed84.js",
         "/scripts.4ad0631c2d7244b0.js",
         "/styles.2e98aeb9af6a4155.css"
       ],
@@ -49,7 +48,6 @@
   "dataGroups": [],
   "hashTable": {
     "/477.299f0ebd4de64316.js": "c2cccbfd9f25795509317437508db6cd9eb62e05",
-    "/644.ac7ee20c501057cb.js": "625bc4ee43f57cd64629ede65742b8192a420d93",
     "/assets/Spotify_Logo_RGB_White.png": "b2ca5d63d322953dba109cbc3a2430fbd4dbe803",
     "/assets/icons/icon-128x128.png": "0c8be8514d36ddc2d08349500032c730b7c08bf6",
     "/assets/icons/icon-144x144.png": "d08ca509c6d1b53a93ad5fdb933582385d481c3a",
@@ -61,11 +59,11 @@
     "/assets/icons/icon-96x96.png": "981b1b5ef853384c9c06ebbd78c8c76f4cc426aa",
     "/assets/picture-not-available.jpg": "53f600f5d94bd2297cd0c8745709e5d2b58ec567",
     "/favicon.ico": "2a84f54a8bfb4a7c543042b34a650066d8d9de90",
-    "/index.html": "18c6bc2bf563af46d0994787dff4fb45ee2b045d",
-    "/main.84ceb06dbda0b261.js": "54d3303b6e1a64bc4ffb4ff21e95aa1a4a3b845c",
+    "/index.html": "4987ce601f8ab3523bacdd09f923ce59e1bc1466",
+    "/main.870de17375716c76.js": "bc10c51510b23a2fbeaec43e9919a96e8de37609",
     "/manifest.webmanifest": "b044893e1907109d777a4adb9538105d1b71af29",
     "/polyfills.f91118986d5517f9.js": "0acb79be1552dadda10e2ab845614b8105b28e8f",
-    "/runtime.c6efad873001dcad.js": "da195537eaca29927d3d04b507a9ff2db9b2c38c",
+    "/runtime.37a28fbaf7a2ed84.js": "6d909d64f6297fb8714d4fffa6d5da7ddc767ca9",
     "/scripts.4ad0631c2d7244b0.js": "c2b21ee968f6b7e382297f023f10f4ae905a5d6f",
     "/styles.2e98aeb9af6a4155.css": "a101647647dac7e9e1bf18bd65de3984f8e80e1b"
   },

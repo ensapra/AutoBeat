@@ -11,35 +11,34 @@ INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\Android
 	android:name
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:39:13-62
 manifest
-ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
 MERGED from [:capacitor-app] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [:capawesome-capacitor-background-task] F:\Projects\Coding\auto-adder-spotify\node_modules\@capawesome\capacitor-background-task\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-android] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\pauso\.gradle\caches\transforms-3\993bb2c7c16ef7a9e633bdc9fba6f791\transformed\appcompat-1.4.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\pauso\.gradle\caches\transforms-3\bf78e5c625ebe2a3cbcaf8e6a7408faf\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-splashscreen:1.0.0-rc01] C:\Users\pauso\.gradle\caches\transforms-3\0c94b67b4f03421f0fa507e57f8d43c8\transformed\jetified-core-splashscreen-1.0.0-rc01\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c461ad8579a440f5ea2826622cc73229\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\pauso\.gradle\caches\transforms-3\3be63725af137627747789de2f18e906\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\d6ca60298abf85465b26e5ec9257c999\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\pauso\.gradle\caches\transforms-3\650c5204534b4f3e4f7d5c5ac5582f8d\transformed\fragment-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\e589c5ce85814c18ad7e2dc4e7464063\transformed\jetified-activity-1.4.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\fbf6c797127529cfc73fadc2bae837f1\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\a18687b815c0c7e447337f594a6814a1\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\e91d13b340298d277e847e43ef850388\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:17:1-37:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\604b0a506fc37996f0363fb42f18f387\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\9526c8e301221e2f35f1f37a85580dfc\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\pauso\.gradle\caches\transforms-3\650c5204534b4f3e4f7d5c5ac5582f8d\transformed\fragment-1.4.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c18a683643054564172c1f3eb2bdbe36\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\4330453ef500d2b6d8242262417ffb65\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\e589c5ce85814c18ad7e2dc4e7464063\transformed\jetified-activity-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\060ed74ccb9752f794349b8afef3d3e5\transformed\webkit-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\adffc1be64b4dee1c4f84932d4c47d94\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\9b1631049bbe2197881fb57bfdfc48d0\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\pauso\.gradle\caches\transforms-3\a9bed7810d7a90b231c883b6912b36f3\transformed\jetified-core-ktx-1.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\604b0a506fc37996f0363fb42f18f387\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.8.0] C:\Users\pauso\.gradle\caches\transforms-3\d301ca9aafa5e75334a9bedd77d94cff\transformed\core-1.8.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c461ad8579a440f5ea2826622cc73229\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\fbf6c797127529cfc73fadc2bae837f1\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\a18687b815c0c7e447337f594a6814a1\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\9526c8e301221e2f35f1f37a85580dfc\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\pauso\.gradle\caches\transforms-3\2e3cd94b1a46e34ab285693c50819285\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\pauso\.gradle\caches\transforms-3\5d58f83dad4d1ef60562a391f50cb705\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:17:1-37:12
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\4137962fcee5d576791754391e0d3c2c\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:17:1-33:12
@@ -51,27 +50,27 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\pauso\.g
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\pauso\.gradle\caches\transforms-3\be3853f6530b857cdcdd10e54a8dea66\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [org.apache.cordova:framework:10.1.1] C:\Users\pauso\.gradle\caches\transforms-3\df7ef5985dbc7692cba1c8e7fb0451d5\transformed\jetified-framework-10.1.1\AndroidManifest.xml:20:1-27:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\c6384fbb45cc445cf16cf1019af3a1d6\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
 	package
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-52:12
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:2:11-69
 application
 ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:4:5-47:19
-MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-11:19
-MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-11:19
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-17:19
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-17:19
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
 MERGED from [androidx.core:core:1.8.0] C:\Users\pauso\.gradle\caches\transforms-3\d301ca9aafa5e75334a9bedd77d94cff\transformed\core-1.8.0\AndroidManifest.xml:24:5-89
@@ -147,17 +146,37 @@ ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidMan
 	android:autoVerify
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:30:28-53
 uses-permission#android.permission.INTERNET
-ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:51:5-67
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:50:5-67
 	android:name
-		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:51:22-64
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:50:22-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:51:5-68
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-68
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-68
+	android:name
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:51:22-65
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:52:5-77
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-77
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-77
+	android:name
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:52:22-74
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:53:5-77
+	android:name
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:53:22-74
+uses-permission#android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:54:5-95
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-95
+MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-95
+	android:name
+		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:54:22-92
 uses-sdk
 INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 INJECTED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml
 MERGED from [:capacitor-app] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-app] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:capawesome-capacitor-background-task] F:\Projects\Coding\auto-adder-spotify\node_modules\@capawesome\capacitor-background-task\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:capawesome-capacitor-background-task] F:\Projects\Coding\auto-adder-spotify\node_modules\@capawesome\capacitor-background-task\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-android] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-android] F:\Projects\Coding\auto-adder-spotify\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
@@ -168,32 +187,22 @@ MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\pauso\
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\pauso\.gradle\caches\transforms-3\bf78e5c625ebe2a3cbcaf8e6a7408faf\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-splashscreen:1.0.0-rc01] C:\Users\pauso\.gradle\caches\transforms-3\0c94b67b4f03421f0fa507e57f8d43c8\transformed\jetified-core-splashscreen-1.0.0-rc01\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-splashscreen:1.0.0-rc01] C:\Users\pauso\.gradle\caches\transforms-3\0c94b67b4f03421f0fa507e57f8d43c8\transformed\jetified-core-splashscreen-1.0.0-rc01\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c461ad8579a440f5ea2826622cc73229\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c461ad8579a440f5ea2826622cc73229\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\pauso\.gradle\caches\transforms-3\3be63725af137627747789de2f18e906\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\pauso\.gradle\caches\transforms-3\3be63725af137627747789de2f18e906\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\d6ca60298abf85465b26e5ec9257c999\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\d6ca60298abf85465b26e5ec9257c999\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\pauso\.gradle\caches\transforms-3\650c5204534b4f3e4f7d5c5ac5582f8d\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\pauso\.gradle\caches\transforms-3\650c5204534b4f3e4f7d5c5ac5582f8d\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\e589c5ce85814c18ad7e2dc4e7464063\transformed\jetified-activity-1.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\e589c5ce85814c18ad7e2dc4e7464063\transformed\jetified-activity-1.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\fbf6c797127529cfc73fadc2bae837f1\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\fbf6c797127529cfc73fadc2bae837f1\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\a18687b815c0c7e447337f594a6814a1\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\a18687b815c0c7e447337f594a6814a1\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\e91d13b340298d277e847e43ef850388\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\e91d13b340298d277e847e43ef850388\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\604b0a506fc37996f0363fb42f18f387\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\604b0a506fc37996f0363fb42f18f387\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\9526c8e301221e2f35f1f37a85580dfc\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\9526c8e301221e2f35f1f37a85580dfc\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\pauso\.gradle\caches\transforms-3\650c5204534b4f3e4f7d5c5ac5582f8d\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\pauso\.gradle\caches\transforms-3\650c5204534b4f3e4f7d5c5ac5582f8d\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c18a683643054564172c1f3eb2bdbe36\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c18a683643054564172c1f3eb2bdbe36\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\4330453ef500d2b6d8242262417ffb65\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\4330453ef500d2b6d8242262417ffb65\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\e589c5ce85814c18ad7e2dc4e7464063\transformed\jetified-activity-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\e589c5ce85814c18ad7e2dc4e7464063\transformed\jetified-activity-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\060ed74ccb9752f794349b8afef3d3e5\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\pauso\.gradle\caches\transforms-3\060ed74ccb9752f794349b8afef3d3e5\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\adffc1be64b4dee1c4f84932d4c47d94\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -202,8 +211,18 @@ MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\pauso\.gradl
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\9b1631049bbe2197881fb57bfdfc48d0\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\pauso\.gradle\caches\transforms-3\a9bed7810d7a90b231c883b6912b36f3\transformed\jetified-core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\pauso\.gradle\caches\transforms-3\a9bed7810d7a90b231c883b6912b36f3\transformed\jetified-core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\604b0a506fc37996f0363fb42f18f387\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\604b0a506fc37996f0363fb42f18f387\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.8.0] C:\Users\pauso\.gradle\caches\transforms-3\d301ca9aafa5e75334a9bedd77d94cff\transformed\core-1.8.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.8.0] C:\Users\pauso\.gradle\caches\transforms-3\d301ca9aafa5e75334a9bedd77d94cff\transformed\core-1.8.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c461ad8579a440f5ea2826622cc73229\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\c461ad8579a440f5ea2826622cc73229\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\fbf6c797127529cfc73fadc2bae837f1\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\fbf6c797127529cfc73fadc2bae837f1\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\a18687b815c0c7e447337f594a6814a1\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\pauso\.gradle\caches\transforms-3\a18687b815c0c7e447337f594a6814a1\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\9526c8e301221e2f35f1f37a85580dfc\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\pauso\.gradle\caches\transforms-3\9526c8e301221e2f35f1f37a85580dfc\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\pauso\.gradle\caches\transforms-3\2e3cd94b1a46e34ab285693c50819285\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\pauso\.gradle\caches\transforms-3\2e3cd94b1a46e34ab285693c50819285\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\pauso\.gradle\caches\transforms-3\5d58f83dad4d1ef60562a391f50cb705\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
@@ -242,6 +261,14 @@ ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidMan
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:45:17-51
 	android:name
 		ADDED from F:\Projects\Coding\auto-adder-spotify\android\app\src\main\AndroidManifest.xml:44:17-67
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-78
+	android:name
+		ADDED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-75
+service#de.appplant.cordova.plugin.background.ForegroundService
+ADDED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-91
+	android:name
+		ADDED from [:capacitor-cordova-android-plugins] F:\Projects\Coding\auto-adder-spotify\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:18-88
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\pauso\.gradle\caches\transforms-3\f51cfcabb06f098335bebc28f4d295df\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\pauso\.gradle\caches\transforms-3\5d58f83dad4d1ef60562a391f50cb705\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:26:9-34:20

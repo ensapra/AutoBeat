@@ -4,6 +4,7 @@ import { Palette } from 'node-vibrant/lib/color';
 import { AnimatorService } from './animator.service';
 import { SpotifyService } from './spotify.service';
 import { Image } from '../models/image.model';
+import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
 
 declare const tinycolor: any;
 
@@ -73,6 +74,8 @@ export class VisualService {
   }
 
   getBestImageUrl(array:Array<Image>|undefined, dim:number):string{
+    if(BackgroundMode.isActive())
+      return ""
     if(array != undefined)
     {    
       let i: number = array.length-1;

@@ -646,6 +646,7 @@ drawable compat_splash_screen
 drawable compat_splash_screen_no_icon_background
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable icon
 drawable icon_background
 drawable notification_action_background
 drawable notification_bg
@@ -659,6 +660,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable power
 drawable splash
 drawable test_level_drawable
 drawable tooltip_frame_dark

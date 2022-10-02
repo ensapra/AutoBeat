@@ -10,10 +10,9 @@ android {
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
     implementation project(':capacitor-app')
-    implementation project(':capawesome-capacitor-background-task')
-
+    implementation "androidx.core:core:1.0.0"
 }
-
+apply from: "../../node_modules/cordova-androidx-build/src/android/cordova-androidx-build.gradle"
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()
