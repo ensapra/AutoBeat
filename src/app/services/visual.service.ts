@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
+import { Capacitor } from '@capacitor/core';
 import Vibrant from 'node-vibrant';
 import { Palette } from 'node-vibrant/lib/color';
 import { Image } from '../models/image.model';
@@ -72,7 +73,7 @@ export class VisualService {
   }
 
   getBestImageUrl(array: Array<Image> | undefined, dim: number): string {
-    if (BackgroundMode.isActive())
+    if (Capacitor.isNativePlatform() && BackgroundMode.isActive())
       return ""
     if (array != undefined) {
       let i: number = array.length - 1;

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
+import { Capacitor } from '@capacitor/core';
 import { map, Observable, of, Subject, switchMap, timer } from 'rxjs';
 import { PlayingState } from '../models/playingstate.model';
 import { Playlist } from '../models/playlist.model';
@@ -50,20 +51,23 @@ export class SpotifyService {
         this.onChangeTrack.next({ previousTrack: previousTrack, state: this.playState, currentTrack: this.currentTrack });
       }
 
-      if (BackgroundMode.isActive()) {
-        if (this.currentTrack == undefined) {
-          BackgroundMode.configure({
-            text: "Not playing a playlist"
-          })
-          this.notPlayingTracks++;
-          if (this.notPlayingTracks > 40)
-            BackgroundMode.disable();
-        }
-        else {
-          this.notPlayingTracks = 0;
-          BackgroundMode.configure({
-            text: "The target playlist is " + this.targetPlaylist?.name
-          })
+      if (Capacitor.isNativePlatform())
+      {
+        if (BackgroundMode.isActive()) {
+          if (this.currentTrack == undefined) {
+            BackgroundMode.configure({
+              text: "Not playing a playlist"
+            })
+            this.notPlayingTracks++;
+            if (this.notPlayingTracks > 40)
+              BackgroundMode.disable();
+          }
+          else {
+            this.notPlayingTracks = 0;
+            BackgroundMode.configure({
+              text: "The target playlist is " + this.targetPlaylist?.name
+            })
+          }
         }
       }
 
@@ -142,7 +146,7 @@ export class SpotifyService {
   }
 
   getPlaylistImage() {
-    if (BackgroundMode.isActive())
+    if (Capacitor.isNativePlatform() && BackgroundMode.isActive())
       return ""
 
     if (this.targetPlaylist != undefined)

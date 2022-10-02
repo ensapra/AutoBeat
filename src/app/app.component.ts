@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
 import { App } from '@capacitor/app';
+import { Capacitor } from '@capacitor/core';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HistoryComponent } from './history/history.component';
 import { ConfiguratorService } from './services/configurator.service';
@@ -22,28 +23,31 @@ export class AppComponent {
 
   constructor(private config: ConfiguratorService) {
     // Enable background mode
-    BackgroundMode.setDefaults({
-      title: "Spadd is adding tracks",
-      resume: true,
-      text: "Loading playlist",
-      showWhen: true,
-      icon: "icon"
-    });
+    if (Capacitor.isNativePlatform())
+    {
+      BackgroundMode.setDefaults({
+        title: "Spadd is adding tracks",
+        resume: true,
+        text: "Loading playlist",
+        showWhen: true,
+        icon: "icon"
+      });
 
-    App.addListener('appStateChange', async ({ isActive }) => {
-      if (isActive) {
-        return;
-      }
-      const conf = this.config.loadConfig();
-      if (conf.autoAdd || conf.autoRemove)
-        BackgroundMode.enable();
-      else
-        BackgroundMode.disable();
-    });
+      App.addListener('appStateChange', async ({ isActive }) => {
+        if (isActive) {
+          return;
+        }
+        const conf = this.config.loadConfig();
+        if (conf.autoAdd || conf.autoRemove)
+          BackgroundMode.enable();
+        else
+          BackgroundMode.disable();
+      });
 
-    BackgroundMode.on("activate").subscribe(() => {
-      BackgroundMode.disableBatteryOptimizations();
-    })
+      BackgroundMode.on("activate").subscribe(() => {
+        BackgroundMode.disableBatteryOptimizations();
+      })
+    }
   }
 
   title = 'spotify-auto-adder'
