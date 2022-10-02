@@ -6,6 +6,9 @@ The implementation is pretty basic, but works pretty well, making use of the ava
 
 It doesn't have playback support. 
 
+![Layout](https://user-images.githubusercontent.com/61149758/193466547-b0ae6124-dace-4fa0-b631-859c43b35300.png)
+
+
 ## How can I use it?
 
 It is a PWA app, allowing the app to be installed on the diferent devices by just entering to the live and running online version, at[spotify-auto-add.web.app](https://spotify-auto-add.web.app/).
