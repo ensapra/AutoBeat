@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
+import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
 import Vibrant from 'node-vibrant';
 import { Palette } from 'node-vibrant/lib/color';
+import { Image } from '../models/image.model';
 import { AnimatorService } from './animator.service';
 import { SpotifyService } from './spotify.service';
-import { Image } from '../models/image.model';
-import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
 
 declare const tinycolor: any;
 
@@ -20,51 +20,49 @@ export interface Color {
 export class VisualService {
 
   public defaultLeft: string = "#360940";
-  public defaultRight:string = "#F05F57";  
+  public defaultRight: string = "#F05F57";
 
   primaryColorPalette: Color[] = [];
   accentColorPalette: Color[] = [];
 
-  private palette:Palette|undefined;
-  constructor(private spotify:SpotifyService, private anim:AnimatorService) { 
+  private palette: Palette | undefined;
+  constructor(private spotify: SpotifyService, private anim: AnimatorService) {
     this.spotify.onChangeTrack.subscribe(() => this.updatePalette(this.getBestImageUrl(spotify.currentTrack?.album.images, 0)))
   }
 
-  bkgColor():any {
-    return { 'background-image': 'linear-gradient(to bottom right,'+this.anim.currentLeft+', '+this.anim.currentRight+')'};
+  bkgColor(): any {
+    return { 'background-image': 'linear-gradient(to bottom right,' + this.anim.currentLeft + ', ' + this.anim.currentRight + ')' };
   }
-  
-  progressContainerSettings():any
-  {
+
+  progressContainerSettings(): any {
     if (this.palette?.LightVibrant) {
-      return { 'background-color': this.palette.LightVibrant.getHex()};
+      return { 'background-color': this.palette.LightVibrant.getHex() };
     } else {
-      return { 'background-color': '#00000'};
-    }
-  }
-  
-  progressSettings():any{
-    const progress = this.spotify.getTrackProgress();
-    if (this.palette?.DarkVibrant) {
-      return { 'background-color': this.palette.DarkVibrant.getHex(), 'width' : progress+"%"};
-    } else {
-      return { 'background-color': '#00000', 'width' : progress+"%"};
+      return { 'background-color': '#00000' };
     }
   }
 
-  getButtonColor():any{
-    if (this.palette?.LightVibrant) {
-      return { 'color': this.palette.LightVibrant.getHex()};
+  progressSettings(): any {
+    const progress = this.spotify.getTrackProgress();
+    if (this.palette?.DarkVibrant) {
+      return { 'background-color': this.palette.DarkVibrant.getHex(), 'width': progress + "%" };
     } else {
-      return { 'color': '#00000'};
+      return { 'background-color': '#00000', 'width': progress + "%" };
     }
   }
-  
-  updatePalette(imageUrl: string)
-  {
+
+  getButtonColor(): any {
+    if (this.palette?.LightVibrant) {
+      return { 'color': this.palette.LightVibrant.getHex() };
+    } else {
+      return { 'color': '#00000' };
+    }
+  }
+
+  updatePalette(imageUrl: string) {
     Vibrant.from(imageUrl).getPalette((err, palette) => {
       this.palette = palette;
-      if(palette != undefined && palette.DarkMuted != undefined && palette.Muted != undefined && this.spotify.playState != undefined)
+      if (palette != undefined && palette.DarkMuted != undefined && palette.Muted != undefined && this.spotify.playState != undefined)
         this.anim.animateColors(palette.DarkMuted.getHex(), palette.Muted.getHex());
       else
         this.anim.animateColors(this.defaultLeft, this.defaultRight);
@@ -73,17 +71,15 @@ export class VisualService {
     });
   }
 
-  getBestImageUrl(array:Array<Image>|undefined, dim:number):string{
-    if(BackgroundMode.isActive())
+  getBestImageUrl(array: Array<Image> | undefined, dim: number): string {
+    if (BackgroundMode.isActive())
       return ""
-    if(array != undefined)
-    {    
-      let i: number = array.length-1;
-      for(i; i >= 0; i--)
-      {
+    if (array != undefined) {
+      let i: number = array.length - 1;
+      for (i; i >= 0; i--) {
         const width = array[i].width;
         const height = array[i].height;
-        if(width > dim && height > dim)
+        if (width > dim && height > dim)
           return array[i].url;
       }
       return array[0].url
@@ -92,8 +88,7 @@ export class VisualService {
   }
 
   savePrimaryColor() {
-    if(this.palette?.Vibrant)
-    {
+    if (this.palette?.Vibrant) {
       this.primaryColorPalette = computeColors(this.palette.Vibrant.getHex());
       for (const color of this.primaryColorPalette) {
         const key1 = `--theme-primary-${color.name}`;
@@ -107,8 +102,7 @@ export class VisualService {
   }
 
   saveAccentColor() {
-    if(this.palette?.DarkMuted)
-    {
+    if (this.palette?.DarkMuted) {
       this.accentColorPalette = computeColors(this.palette.DarkMuted.getHex());
       for (const color of this.accentColorPalette) {
         const key1 = `--theme-accent-${color.name}`;
@@ -141,7 +135,7 @@ function computeColors(hex: string): Color[] {
   ];
 }
 
-function getColorObject(value:any, name:any): Color {
+function getColorObject(value: any, name: any): Color {
   const c = tinycolor(value);
   return {
     name: name,

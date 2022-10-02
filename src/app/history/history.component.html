@@ -4,6 +4,6 @@
         <mat-icon (click)="close()" fonticon="arrow_back_ios"></mat-icon>
     </div>
     <div class="scroller">
-        <app-track  async *ngFor="let track of RecentlyPlayed; trackBy: trackBy" [track]="track" ></app-track>
+        <app-track async *ngFor="let track of RecentlyPlayed; trackBy: trackBy" [track]="track"></app-track>
     </div>
 </div>

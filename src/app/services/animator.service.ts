@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Palette } from 'node-vibrant/lib/color';
 
 @Injectable({
   providedIn: 'root'

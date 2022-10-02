@@ -1,10 +1,10 @@
-import { Component, ViewChild, ViewContainerRef, NgZone } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
+import { App } from '@capacitor/app';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HistoryComponent } from './history/history.component';
-import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
 import { ConfiguratorService } from './services/configurator.service';
-import { App } from '@capacitor/app';
 
 @Component({
   selector: 'app-root',
@@ -20,28 +20,28 @@ export class AppComponent {
   @ViewChild("historyComponent", { read: ViewContainerRef }) private historyRef!: ViewContainerRef;
   @ViewChild("historyDrawer") private historyDrawer!: MatSidenav;
 
-  constructor(private config: ConfiguratorService) { 
+  constructor(private config: ConfiguratorService) {
     // Enable background mode
-    BackgroundMode.setDefaults({ 
+    BackgroundMode.setDefaults({
       title: "Spadd is adding tracks",
       resume: true,
-      text:"Loading playlist",
+      text: "Loading playlist",
       showWhen: true,
-      icon:"icon"
+      icon: "icon"
     });
 
     App.addListener('appStateChange', async ({ isActive }) => {
       if (isActive) {
         return;
       }
-      const conf= this.config.loadConfig();
-      if(conf.autoAdd || conf.autoRemove)
+      const conf = this.config.loadConfig();
+      if (conf.autoAdd || conf.autoRemove)
         BackgroundMode.enable();
       else
         BackgroundMode.disable();
     });
 
-    BackgroundMode.on("activate").subscribe(()=>{
+    BackgroundMode.on("activate").subscribe(() => {
       BackgroundMode.disableBatteryOptimizations();
     })
   }

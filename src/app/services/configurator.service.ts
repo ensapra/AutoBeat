@@ -4,32 +4,31 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfiguratorService {
-  
-  constructor() { 
+
+  constructor() {
   }
   ngOnInit(): void {
   }
 
-  loadConfig(){
+  loadConfig() {
     let json = localStorage.getItem("configuration");
-    if(json != null)
-    {
+    if (json != null) {
       let result = JSON.parse(json);
       return result;
     }
     else
       return new AutoAdderConfiguration(false, 80, false, 20, false, false, false);
   }
-  saveConfiguration(config: AutoAdderConfiguration){
+  saveConfiguration(config: AutoAdderConfiguration) {
     localStorage.setItem("configuration", JSON.stringify(config));
   }
-  clearData(){
+  clearData() {
     localStorage.clear();
   }
 }
-export class AutoAdderConfiguration{
+export class AutoAdderConfiguration {
   public autoAdd: boolean = false
-  public whenToAdd:number = 80;
+  public whenToAdd: number = 80;
   public autoRemove: boolean = false;
   public whenToRemove: number = 20;
 
@@ -37,7 +36,7 @@ export class AutoAdderConfiguration{
   public custom_randomMode: boolean = false;
   public custom_recommendedSongs: boolean = false;
 
-  constructor(autoADD: boolean, whenToAdd: number, autoRemove: boolean, whenToRemove: number, custom_randomMode:boolean, custom_recommendedSongs:boolean, custom_enabled:boolean){
+  constructor(autoADD: boolean, whenToAdd: number, autoRemove: boolean, whenToRemove: number, custom_randomMode: boolean, custom_recommendedSongs: boolean, custom_enabled: boolean) {
     this.autoAdd = autoADD;
     this.whenToAdd = whenToAdd;
     this.autoRemove = autoRemove;

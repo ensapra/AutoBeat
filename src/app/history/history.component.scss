@@ -1,8 +1,9 @@
-.history{
-    width: 700px;   
-    background-color: #212121; 
+.history {
+    width: 700px;
+    background-color: #212121;
 }
-.header{
+
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,37 +11,43 @@
     position: relative;
     z-index: 1;
 }
-h1{
+
+h1 {
     height: 20px;
     padding: 20px 0 20px 20px;
     margin: 0px;
 }
-mat-icon{
+
+mat-icon {
     transform: scale(1.3);
     padding-top: 20px;
     padding-right: 20px;
 }
-.scroller{
+
+.scroller {
     height: calc(100vh - 60px);
     overflow-y: auto;
     overflow-x: hidden;
     margin-right: 5px;
 }
+
 ::-webkit-scrollbar-track {
-    margin: 15px 0 15px 0 ;
+    margin: 15px 0 15px 0;
 }
-mat-icon:hover{
+
+mat-icon:hover {
     color: rgba(190, 190, 190, 1);
     transition: .1s;
 }
+
 @media screen and (max-width: 700px) {
-    .history{
+    .history {
         max-width: 100vw;
     }
 }
 
 @media screen and (max-width: 500px) {
-    h1{
+    h1 {
         font-size: large;
     }
 }

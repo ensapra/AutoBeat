@@ -13,23 +13,23 @@ export class HistoryComponent implements OnInit {
   @Output() closedEvent = new EventEmitter();
 
   public RecentlyPlayed: Array<Track> | undefined;
-  private subs:Subscription;
-  constructor(private spotify: SpotifyService) { 
-    this.subs = spotify.onChangeTrack.subscribe(()=>{
+  private subs: Subscription;
+  constructor(private spotify: SpotifyService) {
+    this.subs = spotify.onChangeTrack.subscribe(() => {
       this.RecentlyPlayed = spotify.getRecentlyPlayed().reverse()
     })
   }
 
   ngOnInit(): void {
-    this.RecentlyPlayed=this.spotify.getRecentlyPlayed().reverse()
+    this.RecentlyPlayed = this.spotify.getRecentlyPlayed().reverse()
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subs.unsubscribe();
   }
-  close(){
+  close() {
     this.closedEvent.emit();
   }
-  public trackBy(index:number, track:Track) {
+  public trackBy(index: number, track: Track) {
     return track.id; // or any other identifier
-}
+  }
 }

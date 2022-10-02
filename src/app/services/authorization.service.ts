@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AppSettings } from 'src/config';
-import { filter, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { SpotifyAuthValStorage } from '../models/auth.model';
-import { from, Observable } from 'rxjs';
 import { Capacitor } from '@capacitor/core';
+import { from, Observable } from 'rxjs';
+import { filter, switchMap } from 'rxjs/operators';
+import { AppSettings } from 'src/config';
+import { SpotifyAuthValStorage } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root'

@@ -2,8 +2,7 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 import { Palette } from 'node-vibrant/lib/color';
-import { emit } from 'process';
-import { concatMap, map, merge, mergeMap, Observable, of, startWith, Subscription } from 'rxjs';
+import { map, Observable, startWith, Subscription } from 'rxjs';
 import { Playlist } from '../models/playlist.model';
 import { TrackState } from '../models/track.model';
 import { User } from '../models/user.model';
@@ -97,8 +96,8 @@ export class HomeComponent implements OnInit {
     return custom.index;
   }
 
-  selectPlaylistOption(value:any) {
-    this.availablePlaylists?.subscribe((playlist: Playlist[])=>{
+  selectPlaylistOption(value: any) {
+    this.availablePlaylists?.subscribe((playlist: Playlist[]) => {
       const selectedPlaylist = playlist.find(a => a.name == value);
       if (this.apiRequester.selectedPlaylsit != selectedPlaylist) {
         this.apiRequester.selectedPlaylsit = selectedPlaylist;

@@ -4,25 +4,27 @@
     background-color: #212121;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 0 5px 5px 2px rgba(24, 24, 24, 0.2);
     z-index: 1;
 }
-h1{
+
+h1 {
     height: 20px;
     padding: 20px 20px 20px 0px;
     margin: 0px;
 }
-mat-icon{
+
+mat-icon {
     transform: scale(1.3);
     padding-top: 20px;
     padding-left: 20px;
 }
 
-.configParameters{
+.configParameters {
     padding-left: 20px;
     padding-right: 20px;
     height: calc(100vh - 120px);
@@ -30,9 +32,10 @@ mat-icon{
     overflow-y: visible;
 }
 
-mat-slide-toggle{
+mat-slide-toggle {
     padding-right: 20px;
 }
+
 mat-slider {
     width: 100%;
 }
@@ -47,6 +50,7 @@ mat-icon:hover {
     width: 100%;
     margin: 20px 0 20px 10px;
 }
+
 .configPack .topRow {
     width: 100%;
     height: 20px;
@@ -55,7 +59,8 @@ mat-icon:hover {
     flex-direction: row;
     justify-content: space-between;
 }
-.configPack .topRow h2{
+
+.configPack .topRow h2 {
     width: 400px;
     font-size: medium;
 }
@@ -84,7 +89,7 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
     box-shadow: 0 -5px 5px 2px rgba(24, 24, 24, 0.2);
     z-index: 1;
     height: 60px;

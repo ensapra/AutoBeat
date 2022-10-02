@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Track, TrackState } from '../models/track.model';
-import { PlayingState } from '../models/playingstate.model';
-import { map, Observable, switchMap, of, interval, Subject, timer } from 'rxjs';
-import { ConfiguratorService } from './configurator.service';
-import { Playlist } from '../models/playlist.model';
+import { Injectable } from '@angular/core';
 import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
+import { map, Observable, of, Subject, switchMap, timer } from 'rxjs';
+import { PlayingState } from '../models/playingstate.model';
+import { Playlist } from '../models/playlist.model';
+import { Track, TrackState } from '../models/track.model';
+import { ConfiguratorService } from './configurator.service';
 
 
 @Injectable({
@@ -31,7 +31,7 @@ export class SpotifyService {
     const url = "https://api.spotify.com/v1/me/player/currently-playing";
     return this.http.get<PlayingState>(url).pipe(map((data: PlayingState) => {
       this.playState = data != null ? data : undefined;
-      
+
       if (this.currentTrack?.id !== data?.item?.id) {
         let item = this.isPlayingPlaylist(this.playState);
         data.item.trackState = TrackState.NoPlaylistPlaying;
@@ -50,19 +50,16 @@ export class SpotifyService {
         this.onChangeTrack.next({ previousTrack: previousTrack, state: this.playState, currentTrack: this.currentTrack });
       }
 
-      if(BackgroundMode.isActive())
-      {
-        if(this.currentTrack == undefined)
-        {
+      if (BackgroundMode.isActive()) {
+        if (this.currentTrack == undefined) {
           BackgroundMode.configure({
             text: "Not playing a playlist"
           })
           this.notPlayingTracks++;
-          if(this.notPlayingTracks > 40)
+          if (this.notPlayingTracks > 40)
             BackgroundMode.disable();
         }
-        else
-        {
+        else {
           this.notPlayingTracks = 0;
           BackgroundMode.configure({
             text: "The target playlist is " + this.targetPlaylist?.name
@@ -145,7 +142,7 @@ export class SpotifyService {
   }
 
   getPlaylistImage() {
-    if(BackgroundMode.isActive())
+    if (BackgroundMode.isActive())
       return ""
 
     if (this.targetPlaylist != undefined)

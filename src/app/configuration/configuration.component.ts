@@ -7,27 +7,27 @@ import { AutoAdderConfiguration, ConfiguratorService } from '../services/configu
   styleUrls: ['./configuration.component.scss']
 })
 export class ConfigurationComponent implements OnInit {
-  
+
   @Output() closedEvent = new EventEmitter();
 
   protected currentConfig: AutoAdderConfiguration;
-  constructor(private config: ConfiguratorService) { 
+  constructor(private config: ConfiguratorService) {
     this.currentConfig = config.loadConfig();
   }
 
   ngOnInit(): void {
   }
 
-  saveConfiguration(){
+  saveConfiguration() {
     this.config.saveConfiguration(this.currentConfig);
   }
 
-  clearData(){
+  clearData() {
     this.config.clearData();
     window.location.href = "";
   }
 
-  close(){
+  close() {
     this.closedEvent.emit();
   }
 }
