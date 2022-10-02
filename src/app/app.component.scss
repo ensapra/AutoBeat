@@ -16,11 +16,21 @@
     color: rgba(190, 190, 190, 1);
     transition: .1s;
 }
-
+.github img{
+    width: 100px;
+    display: flex;
+    justify-self: center;
+}
+.github{
+    display: none;
+}
 @media screen and (max-width: 650px) {
     .nav {
         position: absolute;
         bottom: 0px;
         justify-content: space-around;
+    }
+    .github{
+        display: flex;
     }
 }
