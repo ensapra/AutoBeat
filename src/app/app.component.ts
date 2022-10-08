@@ -21,10 +21,11 @@ export class AppComponent {
 
   @ViewChild("historyComponent", { read: ViewContainerRef }) private historyRef!: ViewContainerRef;
   @ViewChild("historyDrawer") private historyDrawer!: MatSidenav;
-
+  protected isNative:boolean;
   constructor(private config: ConfiguratorService, private spotify: SpotifyService) {
     // Enable background mode
-    if (Capacitor.isNativePlatform())
+    this.isNative = Capacitor.isNativePlatform();
+    if (this.isNative)
     {
       BackgroundMode.setDefaults({
         title: "Spadd is adding tracks",
