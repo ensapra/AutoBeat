@@ -12,7 +12,7 @@ export class ConfigurationComponent implements OnInit {
 
   protected currentConfig: AutoAdderConfiguration;
   constructor(private config: ConfiguratorService) {
-    this.currentConfig = config.loadConfig();
+    this.currentConfig = config.configObject;
   }
 
   ngOnInit(): void {

@@ -8,14 +8,14 @@
         (selectedTabChange)="changeMode($event)" [(selectedIndex)]="selectedIndex">
         <mat-tab label="Auto Mode">
             <div class="playlist">
-                <p *ngIf="this.apiRequester.targetPlaylist == undefined, else playlistContent">You're currently
+                <p *ngIf="this.spotify.targetPlaylist == undefined, else playlistContent">You're currently
                     not playing a Playlist</p>
             </div>
         </mat-tab>
         <mat-tab label="Custom Mode">
             <div class="playlist">
-                <img *ngIf="this.apiRequester.getPlaylistImage() != ''" async
-                    src="{{this.apiRequester.getPlaylistImage()}}" alt="Playlist Image">
+                <img *ngIf="this.spotify.getPlaylistImage() != ''" async
+                    src="{{this.spotify.getPlaylistImage()}}" alt="Playlist Image">
                 <mat-form-field class="title" appearance="fill">
                     <mat-label>Target playlist</mat-label>
                     <mat-select #singleSelect placeholder="Playlist Name"
@@ -34,10 +34,10 @@
     </mat-tab-group>
 
     <div class="player">
-        <h1 *ngIf="this.apiRequester.currentTrack == undefined">Nothing playing</h1>
-        <h1>{{this.apiRequester.currentTrack?.name}}</h1>
-        <p *ngIf="this.apiRequester.currentTrack != undefined">By
-            <span *ngFor="let artist of this.apiRequester.currentTrack?.artists; last as isLast">
+        <h1 *ngIf="this.spotify.currentTrack == undefined">Nothing playing</h1>
+        <h1>{{this.spotify.currentTrack?.name}}</h1>
+        <p *ngIf="this.spotify.currentTrack != undefined">By
+            <span *ngFor="let artist of this.spotify.currentTrack?.artists; last as isLast">
                 <span>{{artist.name}}</span>
                 <span *ngIf="!isLast">, </span>
             </span>
@@ -51,20 +51,20 @@
             <mat-icon fontIcon="add_circle"></mat-icon>
         </button>
         <div class="state">
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 0">No playlist playing</p>
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 1">Not on the playlist</p>
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 2">Already on playlist</p>
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 3" style='color: #5fff38'>Added to playlist</p>
-            <p *ngIf="this.apiRequester.currentTrack?.trackState == 4" style='color: #ff3838'>Removed from playlist</p>
+            <p *ngIf="this.spotify.currentTrack?.trackState == 0">No playlist playing</p>
+            <p *ngIf="this.spotify.currentTrack?.trackState == 1">Not on the playlist</p>
+            <p *ngIf="this.spotify.currentTrack?.trackState == 2">Already on playlist</p>
+            <p *ngIf="this.spotify.currentTrack?.trackState == 3" style='color: #5fff38'>Added to playlist</p>
+            <p *ngIf="this.spotify.currentTrack?.trackState == 4" style='color: #ff3838'>Removed from playlist</p>
         </div>
     </div>
 </div>
 
 <ng-template #playlistContent>
-    <img async src="{{this.apiRequester.getPlaylistImage()}}" alt="Playlist Image">
+    <img async src="{{this.spotify.getPlaylistImage()}}" alt="Playlist Image">
     <div class="title">
-        <p *ngIf="this.config.loadConfig().autoAdd, else playing">Adding songs to: </p>
-        <h1>{{this.apiRequester.targetPlaylist?.name}}</h1>
+        <p *ngIf="this.config.configObject.autoAdd, else playing">Adding songs to: </p>
+        <h1>{{this.spotify.targetPlaylist?.name}}</h1>
     </div>
 </ng-template>
 

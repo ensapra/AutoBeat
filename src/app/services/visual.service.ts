@@ -3,6 +3,7 @@ import { BackgroundMode } from '@awesome-cordova-plugins/background-mode';
 import { Capacitor } from '@capacitor/core';
 import Vibrant from 'node-vibrant';
 import { Palette } from 'node-vibrant/lib/color';
+import { Subscription } from 'rxjs';
 import { Image } from '../models/image.model';
 import { AnimatorService } from './animator.service';
 import { SpotifyService } from './spotify.service';
@@ -27,8 +28,9 @@ export class VisualService {
   accentColorPalette: Color[] = [];
 
   private palette: Palette | undefined;
+  private onChangeTrack: Subscription;
   constructor(private spotify: SpotifyService, private anim: AnimatorService) {
-    this.spotify.onChangeTrack.subscribe(() => this.updatePalette(this.getBestImageUrl(spotify.currentTrack?.album.images, 0)))
+    this.onChangeTrack=this.spotify.onChangeTrack.subscribe(() => this.updatePalette(this.getBestImageUrl(spotify.currentTrack?.album.images, 0)))
   }
 
   bkgColor(): any {

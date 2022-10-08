@@ -24,21 +24,19 @@ export class HomeComponent implements OnInit {
   @ViewChild('targetImage') targetElement: any;
 
   protected user: User | undefined
-  //protected playlist: Playlist|undefined;
-  private onChangeSubscription: Subscription | undefined;
-  private onRefreshSubscription: Subscription | undefined;
+  //protected playlist: Playlist|undefined;  
   availablePlaylists: Observable<Playlist[]> | undefined;
   myControl = new FormControl('');
   protected palette: Palette | undefined;
   protected selectedIndex;
-  constructor(private auth: AuthorizationService, protected apiRequester: SpotifyService, protected visual: VisualService, protected config: ConfiguratorService, private zone: NgZone) {
+  constructor(private auth: AuthorizationService, protected spotify: SpotifyService, protected visual: VisualService, protected config: ConfiguratorService, private zone: NgZone) {
     if (window.location.search.length > 0) {
       this.handleRedirect().subscribe(
-        () => this.initialize()
+        () => this.startServiceUpdate()
       );
     }
     else
-      this.initialize();
+      this.startServiceUpdate();
 
     App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
       this.zone.run(() => {
@@ -46,68 +44,70 @@ export class HomeComponent implements OnInit {
         const urlParams = new URLSearchParams(search);
         const code = urlParams.get('code')
         this.auth.fetchAccessToken(code).subscribe(() =>
-          this.initialize());
+          this.startServiceUpdate());
       });
     });
 
-    this.apiRequester.getPlaylists().subscribe((data: any) => {
-      const playlists = data.items as Playlist[];
-      this.availablePlaylists = this.myControl.valueChanges.pipe(
-        startWith(''),
-        map(
-          (value => {
-            return this._filter(value || '', playlists)
-          })))
-    })
-    this.selectedIndex = this.config.loadConfig().custom_enabled ? 1 : 0;
+    this.selectedIndex = this.config.configObject.custom_enabled ? 1 : 0;
   }
+
+  ngOnInit(): void {
+  }
+
+
+  startServiceUpdate() {
+    if (this.auth.authorizationValues)
+    {
+      this.spotify.startToUpdate();
+      this.spotify.getPlaylists().subscribe((data: any) => {
+        const playlists = data.items as Playlist[];
+        this.availablePlaylists = this.myControl.valueChanges.pipe(
+          startWith(''),
+          map(
+            (value => {
+              return this._filter(value || '', playlists)
+            })))
+      })
+    }
+  }
+
 
   private _filter(value: string, existing: Playlist[]): Playlist[] {
     const filterValue = value.toLowerCase();
     return existing.filter(playlist => playlist.name.toLowerCase().includes(filterValue));
   }
 
-  ngOnInit(): void {
-  }
-  ngOnDestroy() {
-    this.onChangeSubscription?.unsubscribe();
-    this.onRefreshSubscription?.unsubscribe();
-  }
+
 
   addCurrentSong() {
-    if (this.apiRequester.currentTrack != undefined)
-      this.apiRequester.addTrackToTargetPlaylist(this.apiRequester.currentTrack);
-  }
-
-  initialize() {
-    if (this.auth.authorizationValues)
-      this.onRefreshSubscription = this.apiRequester.refresher.subscribe(() => this.apiRequester.updatePlayState().subscribe());
+    if (this.spotify.currentTrack != undefined)
+      this.spotify.addTrackToTargetPlaylist(this.spotify.currentTrack);
   }
 
   getTrackImage() {
-    return this.visual.getBestImageUrl(this.apiRequester.currentTrack?.album.images, this.targetElement?.nativeElement.offsetHeight)
+    return this.visual.getBestImageUrl(this.spotify.currentTrack?.album.images, this.targetElement?.nativeElement.offsetHeight)
   }
 
   changeMode(custom: any) {
-    let config = this.config.loadConfig();
+    let config = this.config.configObject;
     config.custom_enabled = custom.index == 1;
     this.config.saveConfiguration(config);
-    this.apiRequester.refreshTargetPlaylist();
+    this.spotify.refreshTargetPlaylist();
     return custom.index;
   }
 
   selectPlaylistOption(value: any) {
     this.availablePlaylists?.subscribe((playlist: Playlist[]) => {
       const selectedPlaylist = playlist.find(a => a.name == value);
-      if (this.apiRequester.selectedPlaylsit != selectedPlaylist) {
-        this.apiRequester.selectedPlaylsit = selectedPlaylist;
-        this.apiRequester.refreshTargetPlaylist();
+      if (this.spotify.selectedPlaylsit != selectedPlaylist) {
+        this.spotify.selectedPlaylsit = selectedPlaylist;
+        this.spotify.refreshTargetPlaylist();
       }
     })
   }
 
   canAdd(): boolean {
-    return this.apiRequester.currentTrack?.trackState != TrackState.NotOnPlaylist;
+    return this.spotify.currentTrack?.trackState != TrackState.NotOnPlaylist;
   }
 
   handleRedirect(): Observable<any> {

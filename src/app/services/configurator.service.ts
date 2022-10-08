@@ -5,22 +5,25 @@ import { Injectable } from '@angular/core';
 })
 export class ConfiguratorService {
 
+  public configObject: AutoAdderConfiguration;
   constructor() {
+    this.configObject = this.loadConfig();
   }
   ngOnInit(): void {
+    this.loadConfig();
   }
 
-  loadConfig() {
+  private loadConfig() {
     let json = localStorage.getItem("configuration");
     if (json != null) {
-      let result = JSON.parse(json);
-      return result;
+      return JSON.parse(json);
     }
     else
       return new AutoAdderConfiguration(false, 80, false, 20, false, false, false);
   }
   saveConfiguration(config: AutoAdderConfiguration) {
     localStorage.setItem("configuration", JSON.stringify(config));
+    this.configObject = config;
   }
   clearData() {
     localStorage.clear();

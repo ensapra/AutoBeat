@@ -6,6 +6,7 @@ import { Capacitor } from '@capacitor/core';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HistoryComponent } from './history/history.component';
 import { ConfiguratorService } from './services/configurator.service';
+import { SpotifyService } from './services/spotify.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent {
   @ViewChild("historyComponent", { read: ViewContainerRef }) private historyRef!: ViewContainerRef;
   @ViewChild("historyDrawer") private historyDrawer!: MatSidenav;
 
-  constructor(private config: ConfiguratorService) {
+  constructor(private config: ConfiguratorService, private spotify: SpotifyService) {
     // Enable background mode
     if (Capacitor.isNativePlatform())
     {
@@ -36,7 +37,7 @@ export class AppComponent {
         if (isActive) {
           return;
         }
-        const conf = this.config.loadConfig();
+        const conf = this.config.configObject;
         if (conf.autoAdd || conf.autoRemove)
           BackgroundMode.enable();
         else
@@ -44,8 +45,14 @@ export class AppComponent {
       });
 
       BackgroundMode.on("activate").subscribe(() => {
-        BackgroundMode.disableBatteryOptimizations();
+        BackgroundMode.disableWebViewOptimizations();
+        BackgroundMode.configure({
+          text: "The target playlist is " + this.spotify.targetPlaylist?.name
+        })
       })
+
+      BackgroundMode.overrideBackButton();
+      BackgroundMode.disableBatteryOptimizations();
     }
   }
 

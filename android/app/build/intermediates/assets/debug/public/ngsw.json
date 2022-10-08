@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1664729028620,
+  "timestamp": 1665271430160,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -14,12 +14,12 @@
         "/477.299f0ebd4de64316.js",
         "/favicon.ico",
         "/index.html",
-        "/main.a723bc73959b4801.js",
+        "/main.81e9ff8538eeeaff.js",
         "/manifest.webmanifest",
         "/polyfills.f91118986d5517f9.js",
         "/runtime.37a28fbaf7a2ed84.js",
         "/scripts.4ad0631c2d7244b0.js",
-        "/styles.2e98aeb9af6a4155.css"
+        "/styles.a37ce5cd8576431f.css"
       ],
       "patterns": []
     },
@@ -31,6 +31,7 @@
         "ignoreVary": true
       },
       "urls": [
+        "/assets/GetGithub.png",
         "/assets/Spotify_Logo_RGB_White.png",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
@@ -48,6 +49,7 @@
   "dataGroups": [],
   "hashTable": {
     "/477.299f0ebd4de64316.js": "c2cccbfd9f25795509317437508db6cd9eb62e05",
+    "/assets/GetGithub.png": "e7ade04cf4d7b00f6e34ec15cb60798594247eda",
     "/assets/Spotify_Logo_RGB_White.png": "b2ca5d63d322953dba109cbc3a2430fbd4dbe803",
     "/assets/icons/icon-128x128.png": "0c8be8514d36ddc2d08349500032c730b7c08bf6",
     "/assets/icons/icon-144x144.png": "d08ca509c6d1b53a93ad5fdb933582385d481c3a",
@@ -59,13 +61,13 @@
     "/assets/icons/icon-96x96.png": "981b1b5ef853384c9c06ebbd78c8c76f4cc426aa",
     "/assets/picture-not-available.jpg": "53f600f5d94bd2297cd0c8745709e5d2b58ec567",
     "/favicon.ico": "2a84f54a8bfb4a7c543042b34a650066d8d9de90",
-    "/index.html": "58f99d6f0b73c92a6f2b3b67938228e02a9af821",
-    "/main.a723bc73959b4801.js": "1a7f251a8888ab909cfb6e4b40a278de68b73375",
+    "/index.html": "b6bd6e8e128716df7547d58846d99f6d583fe90e",
+    "/main.81e9ff8538eeeaff.js": "0aca9a3a0dc27dcccc063ef404c7bc61e374ab3c",
     "/manifest.webmanifest": "b044893e1907109d777a4adb9538105d1b71af29",
     "/polyfills.f91118986d5517f9.js": "0acb79be1552dadda10e2ab845614b8105b28e8f",
     "/runtime.37a28fbaf7a2ed84.js": "6d909d64f6297fb8714d4fffa6d5da7ddc767ca9",
     "/scripts.4ad0631c2d7244b0.js": "c2b21ee968f6b7e382297f023f10f4ae905a5d6f",
-    "/styles.2e98aeb9af6a4155.css": "a101647647dac7e9e1bf18bd65de3984f8e80e1b"
+    "/styles.a37ce5cd8576431f.css": "42ce42b4db3a5220b3c89e6ab46b279b3747946c"
   },
   "navigationUrls": [
     {
