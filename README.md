@@ -1,4 +1,4 @@
-# Spadd
+# AutoBeat
 
 This app allows the user to automatically add tracks to a specific playlsit, wheather it is selected manually through custom mode, or playing through spotify. I requires authentication from user to log in and use it. 
 
