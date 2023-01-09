@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "resources": "capacitor-resources -p android,ios",
-    "deploy": "ng build && copyfiles .well-known/assetlinks.json dist/autobeat/browser && npx cap sync && npx cap run android"
+    "deploy": "ng build && copyfiles .well-known/assetlinks.json dist/autobeat/browser && firebase deploy && npx cap sync && npx cap open android"
   },
   "private": true,
   "dependencies": {
