@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Track } from '../models/track.model';
 import { SpotifyService } from '../services/spotify.service';
+import { SimpleTrack } from '../models/simpletrack.model';
 
 @Component({
   selector: 'app-history',
@@ -12,7 +13,7 @@ export class HistoryComponent implements OnInit {
 
   @Output() closedEvent = new EventEmitter();
 
-  public RecentlyPlayed: Array<Track> | undefined;
+  public RecentlyPlayed: Array<SimpleTrack> | undefined;
   private subs: Subscription;
   constructor(private spotify: SpotifyService) {
     this.subs = spotify.onChangeTrack.subscribe(() => {
@@ -29,7 +30,7 @@ export class HistoryComponent implements OnInit {
   close() {
     this.closedEvent.emit();
   }
-  public trackBy(index: number, track: Track) {
+  public trackBy(index: number, track: SimpleTrack) {
     return track.id; // or any other identifier
   }
 }

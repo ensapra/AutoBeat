@@ -7,6 +7,7 @@ import { PlayingState } from '../models/playingstate.model';
 import { Playlist } from '../models/playlist.model';
 import { Track, TrackState } from '../models/track.model';
 import { ConfiguratorService } from './configurator.service';
+import { SimpleTrack } from '../models/simpletrack.model';
 
 
 @Injectable({
@@ -55,9 +56,18 @@ export class SpotifyService {
             this.refreshTargetPlaylist();
           })
 
-          let array: Array<Track> = this.getRecentlyPlayed();
+          let array: Array<SimpleTrack> = this.getRecentlyPlayed();
           if (this.currentTrack != undefined)
-            array.push(this.currentTrack);
+          {
+            let st = new SimpleTrack();
+            st.playlistName = this.currentTrack.addedAtPlaylist?.name;
+            st.trackState = this.currentTrack.trackState;
+            st.name = this.currentTrack.name;
+            st.artists = this.currentTrack.artists;
+            st.images = this.currentTrack.album.images;
+            st.id = this.currentTrack.id;
+            array.push(st);
+          }
           this.saveHistory(array);
 
           const previousTrack = this.currentTrack;
@@ -103,7 +113,6 @@ export class SpotifyService {
       return this.playState;
     }));
   }
-
 
   updateCurrentTrackState(playlist: Playlist | undefined) {
     if (this.currentTrack == undefined)
@@ -159,11 +168,11 @@ export class SpotifyService {
     if (json != null)
       return JSON.parse(json);
     else
-      return new Array<Track>();
+      return new Array<SimpleTrack>();
   }
 
 
-  saveHistory(array: Array<Track>) {
+  saveHistory(array: Array<SimpleTrack>) {
     array = array.filter((_, index) => index > array.length - 20);
     localStorage.setItem("previousTracks", JSON.stringify(array));
   }

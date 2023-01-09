@@ -30,6 +30,10 @@
     padding-left: 15px;
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.295));
 }
+.image a {
+    height: 100%;
+    width: 100%;
+}
 
 .song .tabs {
     grid-area: tabs;

@@ -19,6 +19,7 @@ export interface Track {
     track_number: number;
     type: string;
     uri: string;
+    external_urls: string[];
 
     trackState: TrackState;
     addedAtPlaylist: Playlist
