@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sapra.spadd.app-mergeDebugResources-18:/values-hr/values-hr.xml",
+            "outputFile": "com.sapra.autobeat.app-mergeDebugResources-18:/values-hr/values-hr.xml",
             "map": [
                 {
                     "source": "C:\\Users\\pauso\\.gradle\\caches\\transforms-3\\d301ca9aafa5e75334a9bedd77d94cff\\transformed\\core-1.8.0\\res\\values-hr\\values-hr.xml",

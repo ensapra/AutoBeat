@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sapra.spadd.app-mergeDebugResources-18:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.sapra.autobeat.app-mergeDebugResources-18:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\pauso\\.gradle\\caches\\transforms-3\\993bb2c7c16ef7a9e633bdc9fba6f791\\transformed\\appcompat-1.4.2\\res\\values-night-v8\\values-night-v8.xml",

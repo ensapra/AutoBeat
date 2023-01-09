@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sapra.spadd.app-mergeDebugResources-18:/values-v27/values-v27.xml",
+            "outputFile": "com.sapra.autobeat.app-mergeDebugResources-18:/values-v27/values-v27.xml",
             "map": [
                 {
                     "source": "C:\\Users\\pauso\\.gradle\\caches\\transforms-3\\0c94b67b4f03421f0fa507e57f8d43c8\\transformed\\jetified-core-splashscreen-1.0.0-rc01\\res\\values-v27\\values-v27.xml",

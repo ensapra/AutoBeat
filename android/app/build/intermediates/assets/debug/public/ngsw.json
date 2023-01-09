@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1665272721991,
+  "timestamp": 1673299418108,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,14 +11,14 @@
         "ignoreVary": true
       },
       "urls": [
-        "/477.299f0ebd4de64316.js",
+        "/477.f3f44e9d9fe0cb8b.js",
         "/favicon.ico",
         "/index.html",
-        "/main.cc9d144c635674a4.js",
+        "/main.8bac99f97e788507.js",
         "/manifest.webmanifest",
-        "/polyfills.f91118986d5517f9.js",
-        "/runtime.37a28fbaf7a2ed84.js",
-        "/scripts.4ad0631c2d7244b0.js",
+        "/polyfills.70e35303e00712e9.js",
+        "/runtime.bc4ebe7cd8e73e5e.js",
+        "/scripts.a2fb3c6ee84bbd01.js",
         "/styles.a37ce5cd8576431f.css"
       ],
       "patterns": []
@@ -48,7 +48,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/477.299f0ebd4de64316.js": "c2cccbfd9f25795509317437508db6cd9eb62e05",
+    "/477.f3f44e9d9fe0cb8b.js": "f1efabad3c993bf2a1d3d5967a8247bf370da940",
     "/assets/GetGithub.png": "e7ade04cf4d7b00f6e34ec15cb60798594247eda",
     "/assets/Spotify_Logo_RGB_White.png": "b2ca5d63d322953dba109cbc3a2430fbd4dbe803",
     "/assets/icons/icon-128x128.png": "0c8be8514d36ddc2d08349500032c730b7c08bf6",
@@ -61,12 +61,12 @@
     "/assets/icons/icon-96x96.png": "981b1b5ef853384c9c06ebbd78c8c76f4cc426aa",
     "/assets/picture-not-available.jpg": "53f600f5d94bd2297cd0c8745709e5d2b58ec567",
     "/favicon.ico": "2a84f54a8bfb4a7c543042b34a650066d8d9de90",
-    "/index.html": "7e09c0581f2230944d505ca48151c6be07e0d179",
-    "/main.cc9d144c635674a4.js": "5cab5056b1b27ecf09ffcef9a1e1e06114e9bf12",
-    "/manifest.webmanifest": "b044893e1907109d777a4adb9538105d1b71af29",
-    "/polyfills.f91118986d5517f9.js": "0acb79be1552dadda10e2ab845614b8105b28e8f",
-    "/runtime.37a28fbaf7a2ed84.js": "6d909d64f6297fb8714d4fffa6d5da7ddc767ca9",
-    "/scripts.4ad0631c2d7244b0.js": "c2b21ee968f6b7e382297f023f10f4ae905a5d6f",
+    "/index.html": "a36def7ca464b990ef9965b6a53600b81473b954",
+    "/main.8bac99f97e788507.js": "6600e1859657d32b721a0e97b1901602b1c12200",
+    "/manifest.webmanifest": "7d79186bc7390a6723d2d2d7c96ba25c38868e2a",
+    "/polyfills.70e35303e00712e9.js": "21e353ffcb2c35a80fafcb6a03916be2287ba4a0",
+    "/runtime.bc4ebe7cd8e73e5e.js": "416df3deae65b57c375d5f5b9a1010a192c0f27d",
+    "/scripts.a2fb3c6ee84bbd01.js": "5eec1addf20302306ed917034ae192c11229da1c",
     "/styles.a37ce5cd8576431f.css": "42ce42b4db3a5220b3c89e6ab46b279b3747946c"
   },
   "navigationUrls": [
