@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'spotify-auto-adder'`, () => {
+  it(`should have as title 'autobeat'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('spotify-auto-adder');
+    expect(app.title).toEqual('autobeat');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('spotify-auto-adder app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('autobeat app is running!');
   });
 });

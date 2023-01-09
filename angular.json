@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "spotify-auto-adder": {
+    "autobeat": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/spotify-auto-adder/browser",
+            "outputPath": "dist/autobeat/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "spotify-auto-adder:build:production"
+              "browserTarget": "autobeat:build:production"
             },
             "development": {
-              "browserTarget": "spotify-auto-adder:build:development"
+              "browserTarget": "autobeat:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "spotify-auto-adder:build"
+            "browserTarget": "autobeat:build"
           }
         },
         "test": {
@@ -119,7 +119,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/spotify-auto-adder/server",
+            "outputPath": "dist/autobeat/server",
             "main": "src/main.server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
@@ -149,12 +149,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "spotify-auto-adder:build:production",
-              "serverTarget": "spotify-auto-adder:server:production"
+              "browserTarget": "autobeat:build:production",
+              "serverTarget": "autobeat:server:production"
             },
             "development": {
-              "browserTarget": "spotify-auto-adder:build:development",
-              "serverTarget": "spotify-auto-adder:server:development"
+              "browserTarget": "autobeat:build:development",
+              "serverTarget": "autobeat:server:development"
             }
           },
           "defaultConfiguration": "production"

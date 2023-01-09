@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
 
-    namespace 'com.sapra.spadd'
+    namespace 'com.sapra.autobeat'
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.sapra.spadd"
+        applicationId "com.sapra.autobeat"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -1,4 +1,4 @@
-# Spadd
+# AutoBeat
 
 This app allows the user to automatically add tracks to a specific playlsit, wheather it is selected manually through custom mode, or playing through spotify. I requires authentication from user to log in and use it. 
 
@@ -11,9 +11,9 @@ It doesn't have playback support.
 
 ## How can I use it?
 
-It is a PWA app, allowing the app to be installed on the diferent devices by just entering to the live and running online version, at[spotify-auto-add.web.app](https://spotify-auto-add.web.app/).
+It is a PWA app, allowing the app to be installed on the diferent devices by just entering to the live and running online version, at[spotify-auto-add.web.app](https://autobeat.web.app/).
 
-On the [Releases](https://github.com/darksapra/auto-adder-spotify/releases) section there is available an android apk. Please, if using it from an Android, download and install it so that the app works accordingly. 
+On the [Releases](https://github.com/darksapra/autobeat/releases) section there is available an android apk. Please, if using it from an Android, download and install it so that the app works accordingly. 
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.

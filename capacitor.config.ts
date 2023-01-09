@@ -1,9 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.sapra.spadd',
-  appName: 'Spadd',
-  webDir: 'dist/spotify-auto-adder/browser',
+  appId: 'com.sapra.autobeat',
+  appName: 'AutoBeat',
+  webDir: 'dist/autobeat/browser',
   bundledWebRuntime: false
 };
 

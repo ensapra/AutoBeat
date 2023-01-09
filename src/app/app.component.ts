@@ -28,7 +28,7 @@ export class AppComponent {
     if (this.isNative)
     {
       BackgroundMode.setDefaults({
-        title: "Spadd is adding tracks",
+        title: "AutoBeat is adding tracks",
         resume: true,
         text: "Loading playlist",
         icon: "icon"
@@ -57,7 +57,7 @@ export class AppComponent {
     }
   }
 
-  title = 'spotify-auto-adder'
+  title = 'autobeat'
   ngAfterViewInit() {
     import('./configuration/configuration.component').then(() => {
       const compRef = this.configRef.createComponent(ConfigurationComponent).instance;

@@ -2,13 +2,13 @@
 
 # Compiled output
 /dist/*
-!/dist/spotify-auto-adder/
+!/dist/autobeat/
 
-/dist/spotify-auto-adder/*
-!/dist/spotify-auto-adder/browser
+/dist/autobeat/*
+!/dist/autobeat/browser
 
-dist/spotify-auto-adder/browser/*
-!dist/spotify-auto-adder/browser/.well-known
+dist/autobeat/browser/*
+!dist/autobeat/browser/.well-known
 
 /tmp
 /out-tsc

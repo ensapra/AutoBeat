@@ -1,5 +1,5 @@
 {
-  "name": "spotify-auto-adder",
+  "name": "autobeat",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "resources": "capacitor-resources -p android,ios",
-    "deploy": "ng build && copyfiles .well-known/assetlinks.json dist/spotify-auto-adder/browser && npx cap sync && npx cap run android"
+    "deploy": "ng build && copyfiles .well-known/assetlinks.json dist/autobeat/browser && npx cap sync && npx cap run android"
   },
   "private": true,
   "dependencies": {

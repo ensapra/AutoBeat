@@ -44,7 +44,6 @@ export class SpotifyService {
   updatePlayState() {
     return this.getPlayState().pipe(map((data: PlayingState) => {
       this.playState = data != null ? data : undefined;
-      console.log(this.notPlayingTracks)
       if(data != undefined && data.item != undefined)
       {
         if(this.currentTrack?.id != data.item.id)

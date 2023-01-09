@@ -1,4 +1,4 @@
-package com.sapra.spadd;
+package com.sapra.autobeat;
 
 import com.getcapacitor.BridgeActivity;
 
