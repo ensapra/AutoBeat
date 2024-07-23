@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "autobeat:build:production"
+              "buildTarget": "autobeat:build:production"
             },
             "development": {
-              "browserTarget": "autobeat:build:development"
+              "buildTarget": "autobeat:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "autobeat:build"
+            "buildTarget": "autobeat:build"
           }
         },
         "test": {
