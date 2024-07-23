@@ -30,7 +30,7 @@
     "@capacitor/app": "^4.0.1",
     "@capacitor/core": "^4.3.0",
     "@capacitor/ios": "^4.3.0",
-    "capacitor-resources": "^2.0.5",
+    "capacitor-resources": "^1.2.1",
     "cordova-androidx-build": "^1.0.4",
     "cordova-plugin-background-mode": "bitbucket:TheBosZ/cordova-plugin-run-in-background",
     "cordova-plugin-device": "^2.1.0",
@@ -42,7 +42,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.1",
+    "@angular-devkit/build-angular": "^18.1.1",
     "@angular/cli": "~14.2.1",
     "@angular/compiler-cli": "^14.0.0",
     "@capacitor/cli": "^6.1.1",
