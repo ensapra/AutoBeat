@@ -1,3 +1,4 @@
+@use '@angular/material' as mat;
 body{
     width: 100%;
     min-height: 100vh;
@@ -30,13 +31,14 @@ body{
 }
 
 
-@import '~@angular/material/theming';
+//@import '~@angular/material/theming';
+
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
+@include mat.core();
 
 $primary: (
   50 : var(--theme-primary-50),
@@ -70,7 +72,7 @@ $primary: (
     A700: var(--theme-primary-contrast-A700),
   )
 );
-//$primary: mat-palette($mat-red);
+
 $accent:  (
   50 : var(--theme-accent-50),
   100 : var(--theme-accent-100),
@@ -105,6 +107,12 @@ $accent:  (
 );
 
 // Create the theme object (a Sass map containing all of the palettes).
-$dynamic-theme: mat-dark-theme(mat-palette($primary), mat-palette($accent));
+//$dynamic-theme: mat-dark-theme(mat-palette($primary), mat-palette($accent));
 
-@include angular-material-theme($dynamic-theme);
+//@include angular-material-theme($dynamic-theme);
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+  ),
+));

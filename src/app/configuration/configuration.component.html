@@ -13,7 +13,8 @@
             </div>
             <p class="description" *ngIf="!currentConfig.autoAdd;else addDescription">Automatically add tracks after a
                 certain period</p>
-            <mat-slider [disabled]="!currentConfig.autoAdd" [(ngModel)]="currentConfig.whenToAdd" [thumbLabel]="true">
+            <mat-slider [disabled]="!currentConfig.autoAdd" [(ngModel)]="currentConfig.whenToAdd">
+                <input matSliderThumb />
             </mat-slider>
         </div>
         <div class="configPack">
@@ -23,8 +24,9 @@
             </div>
             <p class="description" *ngIf="!currentConfig.autoRemove;else removeDescription">Automatically remove tracks
                 after a certain period</p>
-            <mat-slider [disabled]="!currentConfig.autoRemove" [(ngModel)]="currentConfig.whenToRemove"
-                [thumbLabel]="true"></mat-slider>
+            <mat-slider [disabled]="!currentConfig.autoRemove" [(ngModel)]="currentConfig.whenToRemove">
+                <input matSliderThumb />
+            </mat-slider>
         </div>
 
         <div class="configPack">
