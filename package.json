@@ -45,7 +45,7 @@
     "@angular-devkit/build-angular": "^14.2.1",
     "@angular/cli": "~14.2.1",
     "@angular/compiler-cli": "^14.0.0",
-    "@capacitor/cli": "^4.3.0",
+    "@capacitor/cli": "^6.1.1",
     "@types/jasmine": "~4.0.0",
     "@types/node": "^18.7.16",
     "jasmine-core": "~4.3.0",
