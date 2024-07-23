@@ -10,7 +10,7 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { HistoryComponent } from './history/history.component';
 import { HomeComponent } from './home/home.component';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -31,51 +31,45 @@ import { environment } from '../environments/environment';
 import { SpotifyHTTPInterceptorService } from './services/spotify-httpinterceptor.service';
 import { TrackComponent } from './track/track.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    ConfigurationComponent,
-    HistoryComponent,
-    TrackComponent,
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    HttpClientModule,
-    MatCardModule,
-    MatProgressBarModule,
-    MatSliderModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSlideToggleModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSidenavModule,
-    FlexLayoutModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatAutocompleteModule,
-    MatSelectModule,
-    NgxMatSelectSearchModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-    RouterModule
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: SpotifyHTTPInterceptorService,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        ConfigurationComponent,
+        HistoryComponent,
+        TrackComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatProgressBarModule,
+        MatSliderModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSlideToggleModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSidenavModule,
+        FlexLayoutModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatAutocompleteModule,
+        MatSelectModule,
+        NgxMatSelectSearchModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        RouterModule], providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: SpotifyHTTPInterceptorService,
+            multi: true
+        },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
